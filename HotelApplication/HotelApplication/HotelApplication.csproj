@@ -203,12 +203,22 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\OrderDetailsController.cs" />
+    <Compile Include="Controllers\PaymentsController.cs" />
+    <Compile Include="Controllers\RoomsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Migrations\201706201404066_InitialDatabase.cs" />
     <Compile Include="Migrations\201706201404066_InitialDatabase.Designer.cs">
       <DependentUpon>201706201404066_InitialDatabase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706201437567_AddedPaymentModelAndController.cs" />
+    <Compile Include="Migrations\201706201437567_AddedPaymentModelAndController.Designer.cs">
+      <DependentUpon>201706201437567_AddedPaymentModelAndController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706201501001_CombinedJZ.cs" />
+    <Compile Include="Migrations\201706201501001_CombinedJZ.Designer.cs">
+      <DependentUpon>201706201501001_CombinedJZ.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -217,6 +227,8 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\OrderDetail.cs" />
+    <Compile Include="Models\Payment.cs" />
+    <Compile Include="Models\Room.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="Utilities\CorsHandler.cs" />
@@ -228,6 +240,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Scripts\app.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
@@ -241,9 +254,17 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\knockout-3.4.2.debug.js" />
+    <Content Include="Scripts\knockout-3.4.2.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\order.js" />
+    <Content Include="Scripts\payment.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\room.js" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -255,9 +276,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
     <Content Include="Views\Account\ConfirmEmail.cshtml" />
     <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
@@ -278,6 +296,18 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Home\cashPaymentMethod.cshtml" />
+    <Content Include="Views\Home\choosePaymentMethod.cshtml" />
+    <Content Include="Views\Home\creatingCustomerParticular.cshtml" />
+    <Content Include="Views\Home\creatingNewOrder.cshtml" />
+    <Content Include="Views\Home\creditCardPayment.cshtml" />
+    <Content Include="Views\Home\loadingCreditCard.cshtml" />
+    <Content Include="Views\Home\orderDetail.cshtml" />
+    <Content Include="Views\Home\selectRoom.cshtml" />
+    <Content Include="Views\Home\typesOfReport.cshtml" />
+    <Content Include="Views\Home\ViewListOfCustomer.cshtml" />
+    <Content Include="Views\Home\ViewListOfOrder.cshtml" />
+    <Content Include="Views\Home\ViewListOfPayment.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -300,6 +330,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201706201404066_InitialDatabase.resx">
       <DependentUpon>201706201404066_InitialDatabase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706201437567_AddedPaymentModelAndController.resx">
+      <DependentUpon>201706201437567_AddedPaymentModelAndController.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706201501001_CombinedJZ.resx">
+      <DependentUpon>201706201501001_CombinedJZ.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

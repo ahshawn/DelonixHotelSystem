@@ -1,0 +1,179 @@
+﻿@section scripts {
+    @Scripts.Render("~/bundles/payment")
+}
+
+<div class="page-header">
+    <h1>Total list of Payment - Administration</h1>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h2 class="panel-title"></h2>
+                <!-- Small modal -->
+                <button type="button" class="btn btn-default" data-toggle="modal" data-target=".bs-example-modal-smAddPayment">Add Payment</button>
+            </div>
+            <div class="panel-heading">
+                <h2 class="panel-title">Payments</h2>
+            </div>
+            <div class="panel-body" data-bind="foreach: payments">
+                <div class="col-md-4 hovereffect">
+                    <table cellpadding="10">
+                        <tr>
+
+                            <td valign="top">
+                                <strong><span data-bind="text: paymentType"></span></strong>
+                                (<span data-bind="text: paymentCardType"></span>) <br />
+                                Credit Card Number: <span data-bind="text: paymentCreditCardNumber"></span><br />
+                                Expiry Month: <span data-bind="text: paymentExpiryMonth"></span> <br />
+                                Expiry Year:<span data-bind="text: paymentExpiryYear"></span> <br />
+                                CVC: <span data-bind="text: paymentCVC"></span> <br />
+                                PaymentID: <span data-bind="text: paymentID"></span> <br />
+                                <a href="#" data-bind="click:$parent.getPaymentDetail" class="btn btn-danger" data-toggle="modal" data-target=".bs-example-modal-sm">Details</a>
+
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+
+
+        </div>
+
+
+
+
+
+        <!-- TODO: View Product Details >> Update/Delete -->
+        <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" id="viewDetails" data-bind="if: details()">
+            <div class="modal-dialog modal-sm" role="document">
+                <div class="modal-content">
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h2 class="panel-title">Details</h2>
+                        </div>
+                        <form class="form-horizontal">
+                            <table class="table">
+                                <tr>
+                                    <td>Card ID</td>
+                                    <td><input type="text" class="form-control" id="paymentCreditCardNumber" read data-bind="value:details().paymentID" /></td>
+                                </tr>
+
+                                <tr>
+                                    <td>Card Number</td>
+                                    <td><input type="text" class="form-control" id="paymentCreditCardNumber" read data-bind="value:details().paymentCreditCardNumber" /></td>
+                                </tr>
+                                <tr>
+                                    <td>Card Expiry Month</td>
+                                    <td><input type="number" class="form-control" id="paymentExpiryMonth" read data-bind="value:details().paymentExpiryMonth" autocomplete="on" /></td>
+                                </tr>
+                                <tr>
+                                    <td>Card Expiry Year</td>
+                                    <td><input type="number" class="form-control" id="paymentExpiryYear" read data-bind="value:details().paymentExpiryYear" /></td>
+                                </tr>
+                                <tr>
+                                    <td>Card CVC</td>
+                                    <td><input type="number" step="any" class="form-control" id="paymentCVC" read data-bind="value:details().paymentCVC" /></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" align="center">
+                                        <a href="#" data-bind="click: savePayment" class="btn btn-primary">Update</a>&nbsp;&nbsp;&nbsp;
+                                        <a href="#" data-bind="click: removePayment" class="btn btn-primary">Remove</a>
+                                    </td>
+
+                                </tr>
+                            </table>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+<!-- TODO: Add New Payment -->
+<!-- TODO: Add New Payment -->
+<!-- TODO: Add New Payment -->
+<!-- TODO: Add New Payment -->
+<!-- TODO: Add New Payment -->
+<div class="col-md-offset-6" id="addNewProduct">
+
+
+
+
+    <div class="modal fade bs-example-modal-smAddPayment" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h2 class="panel-title">Add New Payment</h2>
+                    </div>
+
+                    <div class="panel-body">
+                        <div data-bind="popupTemplate: 'templateName'">
+                            <form class="form-horizontal" data-bind="submit: addPayment">
+                                <table class="table">
+                                    <tr>
+                                        <td>Payment Type</td>
+                                        <td>
+                                            <select class="form-control" id="inputpaymentType" data-bind="value:newPayment.paymentType">
+                                                <option value="Cash">Cash</option>
+                                                <option value="Credit Card">Credit Card</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Card Type</td>
+                                        <td>
+                                            <select class="form-control" id="inputpaymentCardType" data-bind="value:newPayment.paymentCardType">
+                                                <option value="Visa">VISA</option>
+                                                <option value="MasterCard">MASTERCARD</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Card Number</td>
+                                        <td><input type="text" class="form-control" id="inputpaymentCreditCardNumber" data-bind="value:newPayment.paymentCreditCardNumber" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Card Expiry Month</td>
+                                        <td><input type="number" class="form-control" id="inputpaymentExpiryMonth" data-bind="value:newPayment.paymentExpiryMonth" autocomplete="on" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Card Expiry Year</td>
+                                        <td><input type="number" class="form-control" id="inputpaymentExpiryYear" data-bind="value:newPayment.paymentExpiryYear" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Card CVC</td>
+                                        <td><input type="number" step="any" class="form-control" id="inputpaymentCVC" data-bind="value:newPayment.paymentCVC" /></td>
+                                    </tr>
+
+
+                                    <tr>
+                                        <td align="center" colspan="2">
+                                            <button type="submit" class="btn btn-primary">Add</button>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>

@@ -22,5 +22,9 @@ namespace HotelApplication.Models
         public System.Data.Entity.DbSet<HotelApplication.Models.Customer> Customers { get; set; }
 
         public System.Data.Entity.DbSet<HotelApplication.Models.OrderDetail> OrderDetails { get; set; }
+
+        public System.Data.Entity.DbSet<HotelApplication.Models.Payment> Payments { get; set; }
+
+        public System.Data.Entity.DbSet<HotelApplication.Models.Room> Rooms { get; set; }
     }
 }

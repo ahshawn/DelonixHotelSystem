@@ -26,6 +26,22 @@ namespace HotelApplication
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
+
+            bundles.Add(new ScriptBundle("~/bundles/app").Include(
+                "~/Scripts/knockout-{version}.js",
+                "~/Scripts/app.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/room").Include(
+                "~/Scripts/knockout-{version}.js",
+                "~/Scripts/room.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/payment").Include(
+                "~/Scripts/knockout-{version}.js",
+                "~/Scripts/payment.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/order").Include(
+                "~/Scripts/knockout-{version}.js",
+                "~/Scripts/order.js"));
         }
     }
 }

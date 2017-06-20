@@ -102,3 +102,5 @@ C:\Codes\DRHMSAPI\trunk\HotelApplication\HotelApplication\obj\Debug\HotelApplica
 C:\Codes\DRHMSAPI\trunk\HotelApplication\HotelApplication\obj\Debug\HotelApplication.pdb
 C:\Codes\DRHMSAPI\trunk\HotelApplication\HotelApplication\obj\Debug\HotelApplication.Migrations.InitialDatabase.resources
 C:\Codes\DRHMSAPI\trunk\HotelApplication\HotelApplication\obj\Debug\HotelApplication.csproj.GenerateResource.Cache
+C:\Codes\DRHMSAPI\trunk\HotelApplication\HotelApplication\obj\Debug\HotelApplication.Migrations.AddedPaymentModelAndController.resources
+C:\Codes\DRHMSAPI\trunk\HotelApplication\HotelApplication\obj\Debug\HotelApplication.Migrations.CombinedJZ.resources

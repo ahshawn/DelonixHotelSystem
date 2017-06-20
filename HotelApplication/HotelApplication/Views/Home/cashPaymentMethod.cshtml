@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewBag.Title = "cashPaymentMethod";
+}
+
+<!DOCTYPE html>
+<html>
+<body>
+
+    <p></p>
+
+    <button onclick="myFunction()">
+    Generate Payment ID</button><br />
+    <strong>Payment ID: <p id="demo"></p></strong>
+    
+
+    <script>
+        function myFunction() {
+            var x = Math.floor((Math.random() * 10000000000000000) + 1);
+            document.getElementById("demo").innerHTML = x;
+        }
+    </script>
+
+</body>
+</html>

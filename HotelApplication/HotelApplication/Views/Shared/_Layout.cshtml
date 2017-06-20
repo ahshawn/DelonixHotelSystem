@@ -6,39 +6,75 @@
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    <style>
+
+
+        .background1 {
+            background-color: red;
+        }
+    </style>
 
 </head>
-<body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+<body style="background-color:lightblue  ">
+
+
+<div class="container-fluid body-content ">
+
+    <div class="col-md-2">
+        <div class="profile-sidebar">
+            <!-- SIDEBAR USERPIC -->
+            <div class="profile-userpic">
+                <img src="~/Content/Image/mrwang.jpg" height="250" width="230"/>
+                <h1><strong>Hotel Management System</strong></h1>
+
             </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+            <!-- END SIDEBAR USERPIC -->
+            <!-- SIDEBAR USER TITLE -->
+            <div class="profile-usertitle" style="color:black">
+                <div class="Shoptitle">
+                    <h2>Administrator</h2>
+                </div>
+                <div class="profile-usertitle-job">
+
+                </div>
+            </div>
+            <!-- END SIDEBAR USER TITLE -->
+            <!-- END SIDEBAR BUTTONS -->
+            <!-- SIDEBAR MENU -->
+            <div class="profile-usermenu">
+                <ul class="nav">
+                    <li class="active">
+
+
+                    </li>
+                    <li>
+
+                    </li>
+
+                    <li>@Html.ActionLink("Home", "Index", "Home", null, new { @class = "glyphicon glyphicon-home", @style = "font-size:150%; color:black;" })</li>
+                    <li> @Html.ActionLink("CreateBooking", "selectRoom", "Home", null, new { @class = "glyphicon glyphicon-ok", @style = "font-size:150%; color:black;" })</li>
+                    <li> @Html.ActionLink("Reports", "typesOfReport", "Home", null, new { @class = "glyphicon glyphicon-ok", @style = "font-size:150%; color:black;" })</li>
+                    <li> @Html.ActionLink("Logout", "", "", null, new { @class = "glyphicon glyphicon-off", @style = "font-size:150%; color:black;" })</li>
+               
+                        
                 </ul>
-                @Html.Partial("_LoginPartial")
             </div>
+            <!-- END MENU -->
         </div>
     </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
+    <div class="col-md-10">
+        <div class="profile-content">
+            @RenderBody()
+        </div>
+
         <footer>
             <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
         </footer>
     </div>
+</div>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+@RenderSection("scripts", required: false)
 </body>
 </html>
