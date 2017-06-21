@@ -47,13 +47,13 @@
 
 
         var updatePayment = {
-            paymentID: self.details().paymentID,
-            paymentType: self.details().paymentType,
-            paymentCreditCardNumber: self.details().paymentCreditCardNumber,
-            paymentCardType: self.details().paymentCardType,
-            paymentExpiryMonth: self.details().paymentExpiryMonth,
-            paymentExpiryYear: self.details().paymentExpiryYear,
-            paymentCVC: self.details().paymentCVC
+            paymentID: self.details().PaymentId,
+            paymentType: self.details().PaymentType,
+            paymentCreditCardNumber: self.details().PaymentCreditCardNumber,
+            paymentCardType: self.details().PaymentCardType,
+            paymentExpiryMonth: self.details().PaymentExpiryMonth,
+            paymentExpiryYear: self.details().PaymentExpiryYear,
+            paymentCVC: self.details().PaymentCVC
 
         };
 
@@ -82,13 +82,13 @@
 
     self.addPayment = function () {
         var aPayment = {
-            paymentID: self.newPayment.paymentID(), // auto number field
-            paymentType: self.newPayment.paymentType(),
-            paymentCreditCardNumber: self.newPayment.paymentCreditCardNumber(),
-            paymentCardType: self.newPayment.paymentCardType(),
-            paymentExpiryMonth: self.newPayment.paymentExpiryMonth(),
-            paymentExpiryYear: self.newPayment.paymentExpiryYear(),
-            paymentCVC: self.newPayment.paymentCVC()
+            paymentID: self.newPayment.PaymentId(), // auto number field
+            paymentType: self.newPayment.PaymentType(),
+            paymentCreditCardNumber: self.newPayment.PaymentCreditCardNumber(),
+            paymentCardType: self.newPayment.PaymentCardType(),
+            paymentExpiryMonth: self.newPayment.PaymentExpiryMonth(),
+            paymentExpiryYear: self.newPayment.PaymentExpiryYear(),
+            paymentCVC: self.newPayment.PaymentCVC()
         };
 
         $.ajax({
@@ -120,13 +120,13 @@
 
     self.removePayment = function () {
         var thePayment = {
-            paymentID: self.details().paymentID,
-            paymentType: self.details().paymentType,
-            paymentCreditCardNumber: self.details().paymentCreditCardNumber,
-            paymentCardType: self.details().paymentCardType,
-            paymentExpiryMonth: self.details().paymentExpiryMonth,
-            paymentExpiryYear: self.details().paymentExpiryYear,
-            paymentCVC: self.details().paymentCVC,
+            paymentID: self.details().PaymentId,
+            paymentType: self.details().PaymentType,
+            paymentCreditCardNumber: self.details().PaymentCreditCardNumber,
+            paymentCardType: self.details().PaymentCardType,
+            paymentExpiryMonth: self.details().PaymentExpiryMonth,
+            paymentExpiryYear: self.details().PaymentExpiryYear,
+            paymentCVC: self.details().PaymentCVC,
         };
 
         if (confirm('Are you sure to delete "' + thePayment.paymentCreditCardNumber + '"?')) {
@@ -156,7 +156,7 @@
     self.getPaymentDetail = function (item) {
         $.ajax({
             type: 'GET',
-            url: paymentURL + "/" + item.paymentID,
+            url: paymentURL + "/" + item.PaymentID,
             dataType: 'json',
             contentType: 'application/json',
             success: function (data) {

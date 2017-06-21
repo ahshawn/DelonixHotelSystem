@@ -19,11 +19,11 @@
                     <tr>
 
                         <td valign="top">
-                            Customer ID: <strong><span data-bind="text: customerID"></span></strong><br />
-                            Customer Name: <span data-bind="text: customerFirstName"></span>
-                            <span data-bind="text: customerLastName"></span> <br />
-                            Contact Number: <span data-bind="text: customerContactNumber"></span><br />
-                            Email Address: <span data-bind="text: customerEmail"></span><br />
+                            Customer ID: <strong><span data-bind="text: CustomerId"></span></strong><br />
+                            Customer Name: <span data-bind="text: CustomerFirstName"></span>
+                            <span data-bind="text: CustomerLastName"></span> <br />
+                            Contact Number: <span data-bind="text: CustomerContactNumber"></span><br />
+                            Email Address: <span data-bind="text: CustomerEmail"></span><br />
                             <a href="#" data-bind="click:$parent.getCustomerDetails" class="btn btn-danger" data-toggle="modal" data-target=".bs-example-modal-sm">Details</a>
                             
                         </td>
@@ -50,24 +50,24 @@
                             <table class="table">
                                 <tr>
                                     <td>Customer ID</td>
-                                    <td><input type="text" class="form-control" id="customerID" read data-bind="value:customerDetails().customerID" /></td>
+                                    <td><input type="text" class="form-control" id="customerID" read data-bind="value:customerDetails().CustomerId" /></td>
                                 </tr>
 
                                 <tr>
                                     <td>Customer First Name:</td>
-                                    <td><input type="text" class="form-control" id="customerFirstName" read data-bind="value:customerDetails().customerFirstName" /></td>
+                                    <td><input type="text" class="form-control" id="customerFirstName" read data-bind="value:customerDetails().CustomerFirstName" /></td>
                                 </tr>
                                 <tr>
                                     <td>Customer Last Name:</td>
-                                    <td><input type="text" class="form-control" id="customerLastName" read data-bind="value:customerDetails().customerLastName" /></td>
+                                    <td><input type="text" class="form-control" id="customerLastName" read data-bind="value:customerDetails().CustomerLastName" /></td>
                                 </tr>
                                 <tr>
                                     <td>Contact Number</td>
-                                    <td><input type="number" class="form-control" id="customerContactNumber" read data-bind="value:customerDetails().customerContactNumber" /></td>
+                                    <td><input type="number" class="form-control" id="customerContactNumber" read data-bind="value:customerDetails().CustomerContactNumber" /></td>
                                 </tr>
                                 <tr>
                                     <td>Email Address</td>
-                                    <td><input type="text" class="form-control" id="customerEmailAddress" read data-bind="value:customerDetails().customerEmail" /></td>
+                                    <td><input type="text" class="form-control" id="customerEmailAddress" read data-bind="value:customerDetails().CustomerEmail" /></td>
                                 </tr>
                                 <tr>
                                     <td colspan="2" align="center">

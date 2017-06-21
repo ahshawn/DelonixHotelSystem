@@ -35,18 +35,18 @@
     //************  Add Customer  **********************//
     self.addCustomer = function () {
         var aCustomer = {
-            customerID: self.newCustomer.customerID(), // auto number field
-            customerNRIC: self.newCustomer.customerNRIC(),
-            customerAddress: self.newCustomer.customerAddress(),
-            customerFirstName: self.newCustomer.customerFirstName(),
-            customerLastName: self.newCustomer.customerLastName(),
-            customerContactNumber: self.newCustomer.customerContactNumber(),
-            customerEmail: self.newCustomer.customerEmail(),
-            customerDOBDay: self.newCustomer.customerDOBDay(),
-            customerDOBMonth: self.newCustomer.customerDOBMonth(),
-            customerDOBYear: self.newCustomer.customerDOBYear(),
-            customerNationality: self.newCustomer.customerNationality(),
-            customerPassportNumber: self.newCustomer.customerPassportNumber()
+            customerID: self.newCustomer.CustomerID(), // auto number field
+            customerNRIC: self.newCustomer.CustomerNRIC(),
+            customerAddress: self.newCustomer.CustomerAddress(),
+            customerFirstName: self.newCustomer.CustomerFirstName(),
+            customerLastName: self.newCustomer.CustomerLastName(),
+            customerContactNumber: self.newCustomer.CustomerContactNumber(),
+            customerEmail: self.newCustomer.CustomerEmail(),
+            customerDOBDay: self.newCustomer.CustomerDOBDay(),
+            customerDOBMonth: self.newCustomer.CustomerDOBMonth(),
+            customerDOBYear: self.newCustomer.CustomerDOBYear(),
+            customerNationality: self.newCustomer.CustomerNationality(),
+            customerPassportNumber: self.newCustomer.CustomerPassportNumber()
 
         };
 
@@ -79,18 +79,18 @@
     self.updateDetail = function () { 
 
         var updateCustomer = {
-            customerID: self.customerDetails().customerID, // auto number field
-            customerNRIC: self.customerDetails().customerNRIC,
-            customerAddress: self.customerDetails().customerAddress,
-            customerFirstName: self.customerDetails().customerFirstName,
-            customerLastName: self.customerDetails().customerLastName,
-            customerContactNumber: self.customerDetails().customerContactNumber,
-            customerEmail: self.customerDetails().customerEmail,
-            customerDOBDay: self.customerDetails().customerDOBDay,
-            customerDOBMonth: self.customerDetails().customerDOBMonth,
-            customerDOBYear: self.customerDetails().customerDOBYear,
-            customerNationality: self.customerDetails().customerNationality,
-            customerPassportNumber: self.customerDetails().customerPassportNumber
+            customerID: self.customerDetails().CustomerId, // auto number field
+            customerNRIC: self.customerDetails().CustomerNric,
+            customerAddress: self.customerDetails().CustomerAddress,
+            customerFirstName: self.customerDetails().CustomerFirstName,
+            customerLastName: self.customerDetails().CustomerLastName,
+            customerContactNumber: self.customerDetails().CustomerContactNumber,
+            customerEmail: self.customerDetails().CustomerEmail,
+            customerDOBDay: self.customerDetails().CustomerDOBDay,
+            customerDOBMonth: self.customerDetails().CustomerDOBMonth,
+            customerDOBYear: self.customerDetails().CustomerDOBYear,
+            customerNationality: self.customerDetails().CustomerNationality,
+            customerPassportNumber: self.customerDetails().CustomerPassportNumber
 
         };
 
@@ -115,18 +115,18 @@
 
     self.removeDetail = function () {
         var deleteCustomer = {
-            customerID: self.customerDetails().customerID, // auto number field
-            customerNRIC: self.customerDetails().customerNRIC,
-            customerAddress: self.customerDetails().customerAddress,
-            customerFirstName: self.customerDetails().customerFirstName,
-            customerLastName: self.customerDetails().customerLastName,
-            customerContactNumber: self.customerDetails().customerContactNumber,
-            customerEmail: self.customerDetails().customerEmail,
-            customerDOBDay: self.customerDetails().customerDOBDay,
-            customerDOBMonth: self.customerDetails().customerDOBMonth,
-            customerDOBYear: self.customerDetails().customerDOBYear,
-            customerNationality: self.customerDetails().customerNationality,
-            customerPassportNumber: self.customerDetails().customerPassportNumber
+            customerID: self.customerDetails().CustomerId, // auto number field
+            customerNRIC: self.customerDetails().CustomerNRIC,
+            customerAddress: self.customerDetails().CustomerAddress,
+            customerFirstName: self.customerDetails().CustomerFirstName,
+            customerLastName: self.customerDetails().CustomerLastName,
+            customerContactNumber: self.customerDetails().CustomerContactNumber,
+            customerEmail: self.customerDetails().CustomerEmail,
+            customerDOBDay: self.customerDetails().CustomerDOBDay,
+            customerDOBMonth: self.customerDetails().CustomerDOBMonth,
+            customerDOBYear: self.customerDetails().CustomerDOBYear,
+            customerNationality: self.customerDetails().CustomerNationality,
+            customerPassportNumber: self.customerDetails().CustomerPassportNumber
         };
 
         if (confirm('Are you sure to delete "' + deleteCustomer.customerID + '"?')) {
@@ -157,7 +157,7 @@
     self.getCustomerDetails = function (item) {
         $.ajax({
             type: 'GET',
-            url: customerAPIURI + "/" + item.customerID,
+            url: customerAPIURI + "/" + item.CustomerId,
             dataType: 'json',
             contentType: 'application/json',
             success: function (data) {
@@ -178,7 +178,7 @@
 
         } else {
             return ko.utils.arrayFilter(self.customers(), function (customer) {
-                return ko.utils.stringStartsWith(customer.customerEmail.toUpperCase(), self.searchString().toUpperCase());
+                return ko.utils.stringStartsWith(customer.CustomerEmail.toUpperCase(), self.searchString().toUpperCase());
             });
         }
     });

@@ -4,7 +4,7 @@
     self.error = ko.observable();
 
     var roomAvaliableURL = '../api/rooms';
-    var customerAPIURI = '../api/customers/';
+    var customerAPIURI = '../api/customers';
 
     //************  get list of ROom  **********************//
     self.confirmCustomerDetails = function (item) {
