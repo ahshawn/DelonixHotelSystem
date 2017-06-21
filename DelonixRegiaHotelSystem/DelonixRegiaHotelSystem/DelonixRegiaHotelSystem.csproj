@@ -221,6 +221,10 @@
     <Compile Include="Migrations\201706211507435_ImportAllModels.Designer.cs">
       <DependentUpon>201706211507435_ImportAllModels.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201706211640169_Initial.cs" />
+    <Compile Include="Migrations\201706211640169_Initial.Designer.cs">
+      <DependentUpon>201706211640169_Initial.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\BookingDetails.cs" />
@@ -335,6 +339,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201706211507435_ImportAllModels.resx">
       <DependentUpon>201706211507435_ImportAllModels.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706211640169_Initial.resx">
+      <DependentUpon>201706211640169_Initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
