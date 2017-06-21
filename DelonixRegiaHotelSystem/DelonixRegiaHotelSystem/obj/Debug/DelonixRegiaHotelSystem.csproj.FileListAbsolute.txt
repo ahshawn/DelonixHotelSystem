@@ -203,7 +203,6 @@ D:\Documents\Hotel System\trunk\DelonixRegiaHotelSystem\DelonixRegiaHotelSystem\
 D:\Documents\Hotel System\trunk\DelonixRegiaHotelSystem\DelonixRegiaHotelSystem\bin\Microsoft.AI.WindowsServer.xml
 D:\Documents\Hotel System\trunk\DelonixRegiaHotelSystem\DelonixRegiaHotelSystem\bin\Microsoft.AI.Web.xml
 D:\Documents\Hotel System\trunk\DelonixRegiaHotelSystem\DelonixRegiaHotelSystem\obj\Debug\DelonixRegiaHotelSystem.csprojResolveAssemblyReference.cache
-D:\Documents\Hotel System\trunk\DelonixRegiaHotelSystem\DelonixRegiaHotelSystem\obj\Debug\DelonixRegiaHotelSystem.Migrations.InitialModel.resources
 D:\Documents\Hotel System\trunk\DelonixRegiaHotelSystem\DelonixRegiaHotelSystem\obj\Debug\DelonixRegiaHotelSystem.Migrations.ImportAllModels.resources
 D:\Documents\Hotel System\trunk\DelonixRegiaHotelSystem\DelonixRegiaHotelSystem\obj\Debug\DelonixRegiaHotelSystem.csproj.GenerateResource.Cache
 D:\Documents\Hotel System\trunk\DelonixRegiaHotelSystem\DelonixRegiaHotelSystem\obj\Debug\DelonixRegiaHotelSystem.dll

@@ -213,10 +213,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201706211311270_InitialModel.cs" />
-    <Compile Include="Migrations\201706211311270_InitialModel.Designer.cs">
-      <DependentUpon>201706211311270_InitialModel.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\201706211507435_ImportAllModels.cs" />
     <Compile Include="Migrations\201706211507435_ImportAllModels.Designer.cs">
       <DependentUpon>201706211507435_ImportAllModels.cs</DependentUpon>
@@ -334,9 +330,6 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201706211311270_InitialModel.resx">
-      <DependentUpon>201706211311270_InitialModel.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201706211507435_ImportAllModels.resx">
       <DependentUpon>201706211507435_ImportAllModels.cs</DependentUpon>
     </EmbeddedResource>
