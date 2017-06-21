@@ -1,0 +1,65 @@
+﻿@{
+    Layout = "~/views/shared/_jzlayout.cshtml";
+}
+@section scripts {
+    @Scripts.Render("~/bundles/payment")
+}
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h2 class="panel-title">Add New Payment</h2>
+    </div>
+
+    <div class="panel-body">
+        <div data-bind="popupTemplate: 'templateName'">
+            <form class="form-horizontal" data-bind="submit: addPayment">
+                <table class="table">
+                    <tr>
+                        <td>Payment Type</td>
+                        <td>
+                            <select class="form-control" id="inputpaymentType" data-bind="value:newPayment.paymentType">
+                                <option value="Credit Card">Credit Card</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Card Type</td>
+                        <td>
+                            <select class="form-control" id="inputpaymentCardType" data-bind="value:newPayment.paymentCardType">
+                                <option value="Visa">VISA</option>
+                                <option value="MasterCard">MASTERCARD</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Card Number</td>
+                        <td><input type="text" class="form-control" id="inputpaymentCreditCardNumber" required placeholder=" Please enter your Credit Card Number" autocomplete="on" data-bind="value:newPayment.paymentCreditCardNumber" /></td>
+                    </tr>
+                    <tr>
+                        <td>Card Expiry Month</td>
+                        <td><input type="number" class="form-control" id="inputpaymentExpiryMonth" required placeholder=" Please enter your Month" autocomplete="on" data-bind="value:newPayment.paymentExpiryMonth" autocomplete="on" /></td>
+                    </tr>
+                    <tr>
+                        <td>Card Expiry Year</td>
+                        <td><input type="number" class="form-control" id="inputpaymentExpiryYear" required placeholder=" Please enter your Year" autocomplete="on" data-bind="value:newPayment.paymentExpiryYear" /></td>
+                    </tr>
+                    <tr>
+                        <td>Card CVC</td>
+                        <td><input type="number" step="any" class="form-control" required placeholder=" Please enter your CVC" autocomplete="on" id="inputpaymentCVC" data-bind="value:newPayment.paymentCVC" /></td>
+                    </tr>
+
+
+                    <tr>
+                        <td align="center" colspan="2">
+                            <button type="submit" class="btn btn-primary">Pay Now!</button>
+
+                            
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+</div>
+                
+
