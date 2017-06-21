@@ -9,7 +9,8 @@ namespace DelonixRegiaHotelSystem.Models
     {
         public int DutyRosterId { get; set; }
         public int StaffId { get; set; }
-        public DateTime StartDateTime { get; set; }
-        public DateTime EndDateTime { get; set; }
+        public DateTime DateTime { get; set; }
+        public string DutyDetail { get; set; }
+        public string Location { get; set; }
     }
 }
