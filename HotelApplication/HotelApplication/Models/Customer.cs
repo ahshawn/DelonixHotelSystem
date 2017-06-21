@@ -8,18 +8,18 @@ namespace HotelApplication.Models
 {
     public class Customer
     {
-        public int customerID { get; set; }
+        public int CustomerId { get; set; }
         [Required]
-        public string customerNRIC { get; set; }
-        public string customerFirstName { get; set; }
-        public string customerLastName { get; set; }
-        public string customerAddress { get; set; }
-        public long customerContactNumber { get; set; }
-        public string customerEmail { get; set; }
-        public int customerDOBDay { get; set; }
-        public int customerDOBMonth { get; set; }
-        public int customerDOBYear { get; set; }
-        public string customerNationality { get; set; }
-        public long customerPassportNumber { get; set; }
+        public string CustomerNric { get; set; }
+        public string CustomerFirstName { get; set; }
+        public string CustomerLastName { get; set; }
+        public string CustomerAddress { get; set; }
+        public long CustomerContactNumber { get; set; }
+        public string CustomerEmail { get; set; }
+        public int CustomerDOBDay { get; set; }
+        public int CustomerDOBMonth { get; set; }
+        public int CustomerDOBYear { get; set; }
+        public string CustomerNationality { get; set; }
+        public long CustomerPassportNumber { get; set; }
     }
 }

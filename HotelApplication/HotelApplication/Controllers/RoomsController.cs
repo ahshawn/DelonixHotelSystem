@@ -45,7 +45,7 @@ namespace HotelApplication.Controllers
                 return BadRequest(ModelState);
             }
 
-            if (id != room.roomID)
+            if (id != room.RoomID)
             {
                 return BadRequest();
             }
@@ -83,7 +83,7 @@ namespace HotelApplication.Controllers
             db.Rooms.Add(room);
             await db.SaveChangesAsync();
 
-            return CreatedAtRoute("DefaultApi", new { id = room.roomID }, room);
+            return CreatedAtRoute("DefaultApi", new { id = room.RoomID }, room);
         }
 
         // DELETE: api/Rooms/5
@@ -113,7 +113,7 @@ namespace HotelApplication.Controllers
 
         private bool RoomExists(int id)
         {
-            return db.Rooms.Count(e => e.roomID == id) > 0;
+            return db.Rooms.Count(e => e.RoomID == id) > 0;
         }
     }
 }

@@ -8,11 +8,11 @@ namespace HotelApplication.Models
 {
     public class Room
     {
-        public int roomID { get; set; }
+        public int RoomID { get; set; }
         [Required]
-        public string roomType { get; set; }
-        public double roomPrice { get; set; }
-        public int roomFloor { get; set; }
-        public string roomRemarks { get; set; }
+        public string RoomType { get; set; }
+        public double RoomPrice { get; set; }
+        public int RoomFloor { get; set; }
+        public string RoomRemarks { get; set; }
     }
 }

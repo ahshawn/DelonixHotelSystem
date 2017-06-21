@@ -8,14 +8,14 @@ namespace HotelApplication.Models
 {
     public class Payment
     {
-        public int paymentID { get; set; }
+        public int PaymentId { get; set; }
         [Required]
-        public String paymentType { get; set; }
-        public long paymentCreditCardNumber { get; set; }
-        public String paymentCardType { get; set; }
-        public int paymentExpiryMonth { get; set; }
-        public int paymentExpiryYear { get; set; }
-        public int paymentCVC { get; set; }
+        public String PaymentType { get; set; }
+        public long PaymentCreditCardNumber { get; set; }
+        public String PaymentCardType { get; set; }
+        public int PaymentExpiryMonth { get; set; }
+        public int PaymentExpiryYear { get; set; }
+        public int PaymentCVC { get; set; }
 
     }
 }

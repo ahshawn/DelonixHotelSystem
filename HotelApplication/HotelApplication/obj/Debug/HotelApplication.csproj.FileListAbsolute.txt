@@ -210,3 +210,4 @@ D:\Documents\Hotel System\trunk\HotelApplication\HotelApplication\obj\Debug\Hote
 D:\Documents\Hotel System\trunk\HotelApplication\HotelApplication\obj\Debug\HotelApplication.csproj.GenerateResource.Cache
 D:\Documents\Hotel System\trunk\HotelApplication\HotelApplication\obj\Debug\HotelApplication.dll
 D:\Documents\Hotel System\trunk\HotelApplication\HotelApplication\obj\Debug\HotelApplication.pdb
+C:\Codes\DRHMSAPI\trunk\HotelApplication\HotelApplication\obj\Debug\HotelApplication.Migrations.AddedBaseModels.resources

@@ -45,7 +45,7 @@ namespace HotelApplication.Controllers
                 return BadRequest(ModelState);
             }
 
-            if (id != customer.customerID)
+            if (id != customer.CustomerId)
             {
                 return BadRequest();
             }
@@ -83,7 +83,7 @@ namespace HotelApplication.Controllers
             db.Customers.Add(customer);
             await db.SaveChangesAsync();
 
-            return CreatedAtRoute("DefaultApi", new { id = customer.customerID }, customer);
+            return CreatedAtRoute("DefaultApi", new { id = customer.CustomerId }, customer);
         }
 
         // DELETE: api/Customers/5
@@ -113,7 +113,7 @@ namespace HotelApplication.Controllers
 
         private bool CustomerExists(int id)
         {
-            return db.Customers.Count(e => e.customerID == id) > 0;
+            return db.Customers.Count(e => e.CustomerId == id) > 0;
         }
     }
 }

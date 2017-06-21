@@ -45,7 +45,7 @@ namespace HotelApplication.Controllers
                 return BadRequest(ModelState);
             }
 
-            if (id != payment.paymentID)
+            if (id != payment.PaymentId)
             {
                 return BadRequest();
             }
@@ -83,7 +83,7 @@ namespace HotelApplication.Controllers
             db.Payments.Add(payment);
             await db.SaveChangesAsync();
 
-            return CreatedAtRoute("DefaultApi", new { id = payment.paymentID }, payment);
+            return CreatedAtRoute("DefaultApi", new { id = payment.PaymentId }, payment);
         }
 
         // DELETE: api/Payments/5
@@ -113,7 +113,7 @@ namespace HotelApplication.Controllers
 
         private bool PaymentExists(int id)
         {
-            return db.Payments.Count(e => e.paymentID == id) > 0;
+            return db.Payments.Count(e => e.PaymentId == id) > 0;
         }
     }
 }

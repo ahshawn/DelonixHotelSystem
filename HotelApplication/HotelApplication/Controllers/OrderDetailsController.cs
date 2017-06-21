@@ -45,7 +45,7 @@ namespace HotelApplication.Controllers
                 return BadRequest(ModelState);
             }
 
-            if (id != orderDetail.orderDetailID)
+            if (id != orderDetail.OrderDetailId)
             {
                 return BadRequest();
             }
@@ -83,7 +83,7 @@ namespace HotelApplication.Controllers
             db.OrderDetails.Add(orderDetail);
             await db.SaveChangesAsync();
 
-            return CreatedAtRoute("DefaultApi", new { id = orderDetail.orderDetailID }, orderDetail);
+            return CreatedAtRoute("DefaultApi", new { id = orderDetail.OrderDetailId }, orderDetail);
         }
 
         // DELETE: api/OrderDetails/5
@@ -113,7 +113,7 @@ namespace HotelApplication.Controllers
 
         private bool OrderDetailExists(int id)
         {
-            return db.OrderDetails.Count(e => e.orderDetailID == id) > 0;
+            return db.OrderDetails.Count(e => e.OrderDetailId == id) > 0;
         }
     }
 }

@@ -8,17 +8,17 @@ namespace HotelApplication.Models
 {
     public class OrderDetail
     {
-        public int orderDetailID { get; set; }
+        public int OrderDetailId { get; set; }
         [Required]
-        public string roomType { get; set; }
-        public double roomPrice { get; set; }
-        public int roomFloor { get; set; }
-        public string roomRemarks { get; set; }
-        public int totalNumberOfDays { get; set; }
-        public int totalNumberOfGuest { get; set; }
-        public double totalCost { get; set; }
-        public string orderRemarks { get; set; }
-        public int customerID { get; set; }
-        public int paymentID { get; set; }
+        public string RoomType { get; set; }
+        public double RoomPrice { get; set; }
+        public int RoomFloor { get; set; }
+        public string RoomRemarks { get; set; }
+        public int TotalNumberOfDays { get; set; }
+        public int TotalNumberOfGuest { get; set; }
+        public double TotalCost { get; set; }
+        public string OrderRemarks { get; set; }
+        public int CustomerId { get; set; }
+        public int PaymentId { get; set; }
     }
 }
