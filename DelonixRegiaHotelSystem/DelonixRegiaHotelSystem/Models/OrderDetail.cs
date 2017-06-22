@@ -20,5 +20,6 @@ namespace DelonixRegiaHotelSystem.Models
         public string orderRemarks { get; set; }
         public int customerID { get; set; }
         public int paymentID { get; set; }
+        public string CheckoutStatus { get; set; }
     }
 }

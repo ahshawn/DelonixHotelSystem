@@ -28,6 +28,7 @@ namespace DelonixRegiaHotelSystem
                       "~/Content/site.css",
                       "~/Content/font-awesome.css"));
 
+            /* ----- JIAZHE BUNDLE ----- */
             bundles.Add(new ScriptBundle("~/bundles/app").Include(
                 "~/Scripts/knockout-{version}.js",
                 "~/Scripts/app.js"));
@@ -43,6 +44,19 @@ namespace DelonixRegiaHotelSystem
             bundles.Add(new ScriptBundle("~/bundles/order").Include(
                 "~/Scripts/knockout-{version}.js",
                 "~/Scripts/order.js"));
+
+            /* ----- END JIAZHE BUNDLE ----- */
+
+
+            /* ----- SHAWN BUNDLE ----- */
+
+            bundles.Add(new ScriptBundle("~/bundles/AngularReport")
+                .IncludeDirectory("~/ReportsApp", "*.js", true));
+
+            bundles.Add(new StyleBundle("~/Content/reportcss").Include(
+                "~/Content/report.css"));
+
+            /* ----- END SHAWN BUNDLE ----- */
         }
     }
 }

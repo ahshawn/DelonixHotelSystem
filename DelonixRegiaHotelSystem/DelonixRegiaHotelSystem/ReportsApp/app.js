@@ -1,0 +1,1 @@
+﻿angular.module("ReportApp", ["Report.RoomController"]);
