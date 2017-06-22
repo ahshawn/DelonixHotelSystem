@@ -4,6 +4,8 @@ namespace DelonixRegiaHotelSystem.Migrations
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
+    using DelonixRegiaHotelSystem.Models;
+    using System.IO;
 
     internal sealed class Configuration : DbMigrationsConfiguration<DelonixRegiaHotelSystem.Models.ApplicationDbContext>
     {
@@ -14,18 +16,20 @@ namespace DelonixRegiaHotelSystem.Migrations
 
         protected override void Seed(DelonixRegiaHotelSystem.Models.ApplicationDbContext context)
         {
-            //  This method will be called after migrating to the latest version.
-
-            //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
-            //  to avoid creating duplicate seed data. E.g.
-            //
-            //    context.People.AddOrUpdate(
-            //      p => p.FullName,
-            //      new Person { FullName = "Andrew Peters" },
-            //      new Person { FullName = "Brice Lambson" },
-            //      new Person { FullName = "Rowan Miller" }
-            //    );
-            //
+            context.Staffs.AddOrUpdate(x => x.StaffId, new Staff()
+            {
+                StaffId = 1,
+                StaffFirstName = "Kumar",
+                StaffLastName = "Kristoph",
+                StaffNric = "S9821353V",
+                StaffEmail = "kumar@ku.com",
+                StaffContactNumber = 98723456,
+                BankName = "Kumar",
+                BankAccount = "234-44wv",
+                DutyType = "Receptions",
+                RoleAssigned = "Receptionist",
+                StaffBirthDate = "24/09/1998"
+            });
         }
     }
 }

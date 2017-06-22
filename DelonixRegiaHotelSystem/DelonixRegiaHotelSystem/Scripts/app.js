@@ -4,12 +4,42 @@
     self.error = ko.observable();
     self.customerDetails = ko.observable();
 
+    self.staffs = ko.observableArray();
+    self.error = ko.observable();
 
 
 
+    //************  Remember to change the URI accordingly (Staff URI)  **********************//
+    var staffAPIURI = '../api/staffs/';
 
-    //************  Remember to change the URI accordingly  **********************//
+    // function to retrieve all products using AJAX call to web API
+    function getAllStaffs() {
+        $.ajax({
+            type: 'GET',
+            url: staffURI,
+            dataType: 'json',
+            contentType: 'application/json',
+            success: function (data) {
+                self.products(data);
+            },
+            error: function (err) {
+                alert("Error: " + err.status + " " + err.statusText);
+            }
+        });
+    };
+    // end of function to retrieve all products
+    //** this is the end of the section contains all the AJAX call to the Web APIs **//
+
+    // Fetch the initial data
+    getAllStaffs();
+};
+
+
+    //************  Remember to change the URI accordingly (Customer URI) **********************//
+
+
     var customerAPIURI = '../api/customers/';
+    
     
 
 

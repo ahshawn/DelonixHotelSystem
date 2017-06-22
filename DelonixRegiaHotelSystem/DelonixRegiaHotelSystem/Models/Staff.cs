@@ -14,7 +14,9 @@ namespace DelonixRegiaHotelSystem.Models
         public int StaffContactNumber { get; set; }
         public string StaffEmail { get; set; }
         public string StaffBirthDate { get; set; }
+        public string BankName { get; set; }
         public string BankAccount { get; set; }
         public string DutyType { get; set; }
+        public string RoleAssigned { get; set; }
     }
 }

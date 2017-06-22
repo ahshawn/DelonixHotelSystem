@@ -199,6 +199,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\Api\StaffsController.cs" />
     <Compile Include="Controllers\BookingController.cs" />
     <Compile Include="Controllers\Api\BookingDetailsController.cs" />
     <Compile Include="Controllers\Api\CustomersController.cs" />
@@ -209,7 +210,7 @@
     <Compile Include="Controllers\Api\OrderDetailsController.cs" />
     <Compile Include="Controllers\Api\PaymentsController.cs" />
     <Compile Include="Controllers\Api\RoomsController.cs" />
-    <Compile Include="Controllers\Api\StaffsController.cs" />
+    <Compile Include="Controllers\StaffkeepingController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -224,6 +225,10 @@
     <Compile Include="Migrations\201706211907045_UpdateModels.cs" />
     <Compile Include="Migrations\201706211907045_UpdateModels.Designer.cs">
       <DependentUpon>201706211907045_UpdateModels.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706221717499_Initial.cs" />
+    <Compile Include="Migrations\201706221717499_Initial.Designer.cs">
+      <DependentUpon>201706221717499_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -348,6 +353,9 @@
     <EmbeddedResource Include="Migrations\201706211907045_UpdateModels.resx">
       <DependentUpon>201706211907045_UpdateModels.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706221717499_Initial.resx">
+      <DependentUpon>201706221717499_Initial.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\FontAwesome.otf" />
@@ -358,6 +366,7 @@
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Views\Shared\_jzlayout.cshtml" />
+    <Content Include="Views\Staff\Index.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
