@@ -226,6 +226,14 @@
     <Compile Include="Migrations\201706211907045_UpdateModels.Designer.cs">
       <DependentUpon>201706211907045_UpdateModels.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201706230746531_UpdatedContext.cs" />
+    <Compile Include="Migrations\201706230746531_UpdatedContext.Designer.cs">
+      <DependentUpon>201706230746531_UpdatedContext.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706231324118_UpdateOrderDetailModel.cs" />
+    <Compile Include="Migrations\201706231324118_UpdateOrderDetailModel.Designer.cs">
+      <DependentUpon>201706231324118_UpdateOrderDetailModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\BookingDetails.cs" />
@@ -258,7 +266,12 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="ReportsApp\app.js" />
+    <Content Include="ReportsApp\Controllers\EditRoomCtrl.js" />
     <Content Include="ReportsApp\Controllers\RoomCtrl.js" />
+    <Content Include="ReportsApp\Services\OrderService.js" />
+    <Content Include="ReportsApp\Services\RoomService.js" />
+    <Content Include="ReportsApp\Views\addroom.html" />
+    <Content Include="ReportsApp\Views\editroom.html" />
     <Content Include="Scripts\angular-animate.js" />
     <Content Include="Scripts\angular-animate.min.js" />
     <Content Include="Scripts\angular-aria.js" />
@@ -1110,6 +1123,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201706211907045_UpdateModels.resx">
       <DependentUpon>201706211907045_UpdateModels.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706230746531_UpdatedContext.resx">
+      <DependentUpon>201706230746531_UpdatedContext.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706231324118_UpdateOrderDetailModel.resx">
+      <DependentUpon>201706231324118_UpdateOrderDetailModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

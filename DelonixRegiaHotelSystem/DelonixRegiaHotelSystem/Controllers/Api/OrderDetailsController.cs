@@ -35,6 +35,10 @@ namespace DelonixRegiaHotelSystem.Controllers
 
             return Ok(orderDetail);
         }
+        public IQueryable<OrderDetail> GetCheckoutNotDone()
+        {
+            return db.OrderDetails.Where(c => c.CheckoutStatus == "Not Done");
+        }
 
         // PUT: api/OrderDetails/5
         [ResponseType(typeof(void))]
@@ -75,6 +79,7 @@ namespace DelonixRegiaHotelSystem.Controllers
         [ResponseType(typeof(OrderDetail))]
         public async Task<IHttpActionResult> PostOrderDetail(OrderDetail orderDetail)
         {
+            orderDetail.totalNumberOfDays = (int) (orderDetail.CheckOutTime - orderDetail.CheckInTime).TotalDays;
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);

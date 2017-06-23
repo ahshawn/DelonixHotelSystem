@@ -1,48 +1,64 @@
-﻿angular.module("Report.RoomController", [])
-    .controller("RoomCtrl",
+﻿var reportApp = angular.module("ReportApp");
+reportApp.controller("RoomCtrl",
     [
-        "$scope", "$http", function ($scope, $http) {
-            var roomApiUrl = "/api/rooms/";
+        "$scope", "roomService", "$location", "$routeParams", "$log",
+        function($scope, roomService, $location, $routeParams, $log) {
             $scope.model = {
             };
             $scope.new = {
                 Room: {}
             };
+            $scope.edit = {
+
+            };
+
+            //Get Room
 
             var getRoom = function () {
-                $http({
-                    method: 'GET',
-                    url: roomApiUrl
-                }).then(function successCallback(response) {
-                    $scope.model.Rooms = response.data;
-                },
-                    function errorCallback(response) {
-                        console.log(response);
+                roomService.getAllRoom()
+                    .then(function (data) {
+                        $scope.model.Rooms = data;
                     });
             };
 
             getRoom();
 
+            //Add Room
+
+            $scope.addRoom = function () {
+                roomService.addRoom($scope.new.Room);
+                $location.path("/room");
+
+            };
+
+            //Delete Room
+            $scope.deleteConfirmation = function(room) {
+                $scope.roomIDToDelete = room.roomID;
+            };
+
+            $scope.confirmDelete = function(id) {
+                roomService.deleteRoom(id)
+                    .then(function(response) {
+                        alert("Record successfully deleted: " + response.data.roomID);
+                        getRoom();
+                    });
+            };
+
+            //EDIT Room
+            $scope.editRoom = function(id) {
+
+                roomService.getRoom(id)
+                    .then(function(data) {
+                        $scope.edit.Room = data;
+                        $log.warn($scope.edit.Room);
+                    });
+            };
+
+
+            //print
+
             $scope.print = function () {
                 window.print();
-            };
-
-            //Add Room
-            $scope.new = {
-                Room: {}
-            };
-
-            $scope.addRoom = function() {
-                $http.post(roomApiUrl, $scope.new.Room)
-                    .then(
-                    function (response) {
-                        alert("Added A Room Successfully");
-                        $scope.model.Rooms.push(response.data);
-                    },
-                    function (err) {
-                        alert("Something went wrong!" + err);
-                    });
-
             };
         }
     ]);

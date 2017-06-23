@@ -526,3 +526,5 @@ C:\Codes\DRHMSAPI\branches\RoomStatus\DelonixRegiaHotelSystem\DelonixRegiaHotelS
 C:\Codes\DRHMSAPI\branches\RoomStatus\DelonixRegiaHotelSystem\DelonixRegiaHotelSystem\obj\Debug\DelonixRegiaHotelSystem.csproj.GenerateResource.Cache
 C:\Codes\DRHMSAPI\branches\RoomStatus\DelonixRegiaHotelSystem\DelonixRegiaHotelSystem\obj\Debug\DelonixRegiaHotelSystem.dll
 C:\Codes\DRHMSAPI\branches\RoomStatus\DelonixRegiaHotelSystem\DelonixRegiaHotelSystem\obj\Debug\DelonixRegiaHotelSystem.pdb
+C:\Codes\DRHMSAPI\branches\RoomStatus\DelonixRegiaHotelSystem\DelonixRegiaHotelSystem\obj\Debug\DelonixRegiaHotelSystem.Migrations.UpdatedContext.resources
+C:\Codes\DRHMSAPI\branches\RoomStatus\DelonixRegiaHotelSystem\DelonixRegiaHotelSystem\obj\Debug\DelonixRegiaHotelSystem.Migrations.UpdateOrderDetailModel.resources
