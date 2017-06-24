@@ -3,7 +3,7 @@
         <h1>Add a room</h1>
         <hr />
         <div class="col-md-offset-3 col-md-9">
-            <form class="form-horizontal">
+            <form class="form-horizontal" ng-submit="addRoom()">
                 <div class="form-group">
                     <label for="roomtype" class="col-sm-2 control-label">Room Type</label>
                     <div class="col-sm-10">
@@ -48,7 +48,7 @@
                     <div class="col-sm-2 control-label"></div>
                     <div class="col-sm-10">
                         <a href="#!/room" class="btn btn-default"><i class="glyphicon glyphicon-arrow-left"></i> Go Back</a>
-                        <button type="submit" ng-click="addRoom()" class="btn btn-primary">Add Room</button>
+                        <button type="submit" class="btn btn-primary">Add Room</button>
                     </div>
                 </div>
 

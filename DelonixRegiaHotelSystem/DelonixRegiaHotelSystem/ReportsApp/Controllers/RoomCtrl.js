@@ -8,15 +8,15 @@ reportApp.controller("RoomCtrl",
             $scope.new = {
                 Room: {}
             };
-            $scope.edit = {
 
-            };
 
             //Get Room
 
             var getRoom = function () {
+                $scope.loader = true;
                 roomService.getAllRoom()
                     .then(function (data) {
+                        $scope.loader = false;
                         $scope.model.Rooms = data;
                     });
             };
@@ -36,21 +36,13 @@ reportApp.controller("RoomCtrl",
                 $scope.roomIDToDelete = room.roomID;
             };
 
-            $scope.confirmDelete = function(id) {
+            $scope.confirmDelete = function (id) {
+                $scope.loader = true;
                 roomService.deleteRoom(id)
-                    .then(function(response) {
+                    .then(function (response) {
+                        $scope.loader = false;
                         alert("Record successfully deleted: " + response.data.roomID);
                         getRoom();
-                    });
-            };
-
-            //EDIT Room
-            $scope.editRoom = function(id) {
-
-                roomService.getRoom(id)
-                    .then(function(data) {
-                        $scope.edit.Room = data;
-                        $log.warn($scope.edit.Room);
                     });
             };
 

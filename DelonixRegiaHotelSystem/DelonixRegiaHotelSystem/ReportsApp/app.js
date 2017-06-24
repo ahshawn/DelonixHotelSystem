@@ -12,14 +12,26 @@ reportApp.config(function ($routeProvider) {
         .when("/room/add",
         {
             templateUrl: "ReportsApp/Views/addroom.html",
-            controller: "RoomCtrl"
+            controller: "AddRoomCtrl"
         })
 
         .when("/room/edit/:id",
-            {
-                templateUrl: "ReportsApp/Views/editroom.html",
-                controller: "EditRoomCtrl"
+        {
+            templateUrl: "ReportsApp/Views/editroom.html",
+            controller: "EditRoomCtrl"
         })
+
+        .when("/occupancy",
+        {
+            templateUrl: "ReportsApp/Views/searchoccupancy.html",
+            controller: "OccupantsCtrl"
+        })
+
+        .when("/alloccupancy",
+            {
+                templateUrl: "ReportsApp/Views/searchoccupancy.html",
+                controller: "OccupantsCtrl"
+            })
 
         .otherwise({ redirectTo: "/room" });
 });

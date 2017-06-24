@@ -11,8 +11,9 @@ using System.Web.Http;
 using System.Web.Http.Description;
 using DelonixRegiaHotelSystem.Models;
 
-namespace DelonixRegiaHotelSystem.Controllers
+namespace DelonixRegiaHotelSystem.Controllers.Api
 {
+    [RoutePrefix("api/orderdetails")]
     public class OrderDetailsController : ApiController
     {
         private ApplicationDbContext db = new ApplicationDbContext();
@@ -23,6 +24,18 @@ namespace DelonixRegiaHotelSystem.Controllers
             return db.OrderDetails;
         }
 
+        [ResponseType(typeof(OrderDetail))]
+        [Route("room/{roomId:int}")]
+        public async Task<IHttpActionResult> GetRoomNumber(int roomId)
+        {
+            OrderDetail orderDetail = await db.OrderDetails.Where(r => r.roomID == roomId).FirstOrDefaultAsync();
+            if (orderDetail == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(orderDetail);
+        }
         // GET: api/OrderDetails/5
         [ResponseType(typeof(OrderDetail))]
         public async Task<IHttpActionResult> GetOrderDetail(int id)
@@ -35,6 +48,7 @@ namespace DelonixRegiaHotelSystem.Controllers
 
             return Ok(orderDetail);
         }
+        [Route("checkoutnotdone")]
         public IQueryable<OrderDetail> GetCheckoutNotDone()
         {
             return db.OrderDetails.Where(c => c.CheckoutStatus == "Not Done");

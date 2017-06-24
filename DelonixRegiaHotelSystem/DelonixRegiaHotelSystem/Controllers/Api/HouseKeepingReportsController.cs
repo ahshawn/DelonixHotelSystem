@@ -11,7 +11,7 @@ using System.Web.Http;
 using System.Web.Http.Description;
 using DelonixRegiaHotelSystem.Models;
 
-namespace DelonixRegiaHotelSystem.Controllers
+namespace DelonixRegiaHotelSystem.Controllers.Api
 {
     public class HouseKeepingReportsController : ApiController
     {

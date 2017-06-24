@@ -28,6 +28,14 @@
                 <li>@Html.ActionLink("About", "About", "Home")</li>
                 <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                 <li>@Html.ActionLink("Reports", "Index", "Report")</li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Reports
+                        <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="Report#!/room">Room Report</a></li>
+                        <li><a href="Report#!/occupancy">Occupancy Report</a></li>
+                    </ul>
+                </li>
             </ul>
             @Html.Partial("_LoginPartial")
         </div>

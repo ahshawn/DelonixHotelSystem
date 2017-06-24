@@ -1,0 +1,146 @@
+﻿<div class="container">
+    <div class="row">
+        <div class="col-md-offset-3">
+            <h1>Search Occupants in Particular Room</h1>
+        </div>
+        <hr />
+    </div>
+    <div class="row">
+        <div class="col-md-offset-4">
+            <form class="form-inline" ng-submit="searchRoomOccupancy()">
+                <div class="form-group">
+                    <label for="room-number">Search Room Number:</label>
+                    <input type="number" ng-model="searchItem" class="form-control" id="room-number" placeholder="E.g. 2" required>
+                </div>
+                <button type="submit" class="btn btn-default">Search</button>
+            </form>
+        </div>
+    </div>
+    <div class="row search-result">
+        <div class="col-md-12">
+            <div class="spinner" ng-show="loader">
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
+            </div>
+
+            <div ng-if="found.room && found.customer">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">
+                            Room Details and Customer Particulars <a ng-click="print()" class="btn btn-primary"><span class="glyphicon glyphicon-print"></span> Print This Report</a>
+                        </h3>
+                    </div>
+                    <div class="panel-body">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th class="align-right table-header">Booking Details</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="align-right">Order Id:</td>
+                                    <td>{{ found.room.orderDetailID}}</td>
+                                </tr>
+                                <tr>
+                                    <td class="align-right">Room Number:</td>
+                                    <td>{{ found.room.roomID}}</td>
+                                </tr>
+                                <tr>
+                                    <td class="align-right">Room Type:</td>
+                                    <td>{{ found.room.roomType}}</td>
+                                </tr>
+                                <tr>
+                                    <td class="align-right">Room Price:</td>
+                                    <td>{{ found.room.roomPrice || currency }}</td>
+                                </tr>
+                                <tr>
+                                    <td class="align-right">Room Floor:</td>
+                                    <td>{{ found.room.roomFloor}}</td>
+                                </tr>
+                                <tr>
+                                    <td class="align-right">Adults:</td>
+                                    <td>{{ found.room.totalAdult}}</td>
+                                </tr>
+                                <tr>
+                                    <td class="align-right">Children:</td>
+                                    <td>{{ found.room.totalChild}}</td>
+                                </tr>
+                                <tr>
+                                    <td class="align-right">Total Guest:</td>
+                                    <td>{{ found.room.totalNumberOfGuest}}</td>
+                                </tr>
+                                <tr>
+                                    <td class="align-right">Total Days Staying:</td>
+                                    <td>{{ found.room.totalNumberOfDays}}</td>
+                                </tr>
+                                <tr>
+                                    <td class="align-right">Total Cost:</td>
+                                    <td>{{ found.room.totalCost | currency}}</td>
+                                </tr>
+                                <tr>
+                                    <td class="align-right">Check-in Date:</td>
+                                    <td>{{ found.room.CheckInTime | date}}</td>
+                                </tr>
+                                <tr>
+                                    <td class="align-right">Check-out Date:</td>
+                                    <td>{{ found.room.CheckOutTime | date }}</td>
+                                </tr>
+                                <tr>
+                                    <td class="align-right">Check-out Status:</td>
+                                    <td><span ng-class="{'text-success': found.room.CheckoutStatus == 'Done', 'text-danger': found.room.CheckoutStatus == 'Not Done'}">{{ found.room.CheckoutStatus }}</span></td>
+                                </tr>
+                                <tr>
+                                    <th class="align-right table-header">Customer Particulars</th>
+                                    <th></th>
+                                </tr>
+                                <tr>
+                                    <td class="align-right">NRIC:</td>
+                                    <td>{{ found.customer.customerNRIC}}</td>
+                                </tr>
+                                <tr>
+                                    <td class="align-right">Passport Number:</td>
+                                    <td>{{ found.customer.customerPassportNumber}}</td>
+                                </tr>
+                                <tr>
+                                    <td class="align-right">Name:</td>
+                                    <td>{{ found.customer.customerfirstName }} {{ found.customer.customerLastName}}</td>
+                                </tr>
+                                <tr>
+                                    <td class="align-right">Email:</td>
+                                    <td>{{ found.customer.customerEmail}}</td>
+                                </tr>
+                                <tr>
+                                    <td class="align-right">Nationaility:</td>
+                                    <td>{{ found.customer.customerNationality}}</td>
+                                </tr>
+                                <tr>
+                                    <td class="align-right">Date of Birth (day/month/year):</td>
+                                    <td>{{ found.customer.customerDOBDay}}/{{ found.customer.customerDOBMonth}}/{{ found.customer.customerDOBYear}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+
+            </div>
+
+            <div ng-if="error.room">
+                <div class="panel panel-default search-result">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Error</h3>
+                    </div>
+                    <div class="panel-body">
+                        The room number {{ error.room.searchItem }} is {{ error.room.statusText}}. This room is not occupied.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+</div>

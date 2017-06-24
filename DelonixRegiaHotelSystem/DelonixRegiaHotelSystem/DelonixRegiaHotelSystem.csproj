@@ -266,12 +266,18 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="ReportsApp\app.js" />
+    <Content Include="ReportsApp\Controllers\AddRoomCtrl.js" />
+    <Content Include="ReportsApp\Controllers\AllGuestCtrl.js" />
     <Content Include="ReportsApp\Controllers\EditRoomCtrl.js" />
+    <Content Include="ReportsApp\Controllers\OccupantsCtrl.js" />
     <Content Include="ReportsApp\Controllers\RoomCtrl.js" />
+    <Content Include="ReportsApp\ExportToExcel.js" />
+    <Content Include="ReportsApp\Services\CustomerService.js" />
     <Content Include="ReportsApp\Services\OrderService.js" />
     <Content Include="ReportsApp\Services\RoomService.js" />
     <Content Include="ReportsApp\Views\addroom.html" />
     <Content Include="ReportsApp\Views\editroom.html" />
+    <Content Include="ReportsApp\Views\searchoccupancy.html" />
     <Content Include="Scripts\angular-animate.js" />
     <Content Include="Scripts\angular-animate.min.js" />
     <Content Include="Scripts\angular-aria.js" />

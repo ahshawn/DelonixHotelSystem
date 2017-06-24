@@ -7,15 +7,18 @@ reportApp.controller("EditRoomCtrl",
             };
 
             var id = $routeParams.id;
-
+            $scope.loader = true;
             roomService.getRoom(id)
                 .then(function (data) {
+                    $scope.loader = false;
                     $scope.edit.Room = data;
                 });
 
-            $scope.editRoom = function() {
+            $scope.editRoom = function () {
+                $scope.loader = true;
                 roomService.editRoom(id, $scope.edit.Room)
-                    .then(function(data) {
+                    .then(function (data) {
+                        $scope.loader = false;
                         alert("Successfully editted : " + data);
                     });
             };
