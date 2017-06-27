@@ -50,8 +50,8 @@ textarea {
     }
 
     .spinner .bounce3 {
-        -webkit-animation-delay: -0.8s;
-        animation-delay: -0.8s;
+        -webkit-animation-delay: -0.12s;
+        animation-delay: -0.12s;
     }
 
 @-webkit-keyframes sk-bouncedelay {

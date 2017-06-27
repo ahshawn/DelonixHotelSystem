@@ -1,0 +1,80 @@
+﻿<div class="container">
+    <div class="row">
+        <h1>Edit Room Number : {{ edit.Room.roomID }}
+        </h1>
+        <hr />
+        <div class="spinner" ng-show="loader">
+            <div class="bounce1"></div>
+            <div class="bounce2"></div>
+            <div class="bounce3"></div>
+        </div>
+        <div class="row" ng-if="success">
+            <div class="panel panel-success">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Update Success</h3>
+                </div>
+                <div class="panel-body">
+                    {{ success }}
+                </div>
+            </div>
+        </div>
+        <div class="col-md-offset-3 col-md-9" ng-if="!loader">
+
+            <div class="row">
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <label for="roomtype" class="col-sm-2 control-label">Room Type</label>
+                        <div class="col-sm-10">
+                            <select id="roomtype" class="form-control" ng-model="edit.Room.roomType">
+                            <option value="Single-Bed Room" selected>Single-Bed Room</option>
+                            <option value="Double-Bed Room">Double-Bed Room</option>
+                            <option value="Queen-Size Bed Room">Queen-Size Bed Room</option>
+                            <option value="King-Size Bed Room">King-Size Bed Room</option>
+                        </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="price" class="col-sm-2 control-label">Price $</label>
+                        <div class="col-sm-10">
+                            <input id="price" type="number" ng-model="edit.Room.roomPrice" step="0.01" class="form-control" placeholder="E.g. 199.99">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="floor" class="col-sm-2 control-label">Floor</label>
+                        <div class="col-sm-10">
+                            <input id="floor" type="number" ng-model="edit.Room.roomFloor" class="form-control" placeholder="E.g. 12">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label id="remark" for="floor" class="col-sm-2 control-label">Remarks</label>
+                        <div class="col-sm-10">
+                            <input id="remark" type="text" ng-model="edit.Room.roomRemarks" class="form-control" placeholder="E.g. Any Comments?">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label id="status" for="floor" class="col-sm-2 control-label">Room Status</label>
+                        <div class="col-sm-10">
+                            <select id="status" class="form-control" ng-model="edit.Room.Status">
+                            <option value="Available">Available</option>
+                            <option value="Occupied">Occupied</option>
+                            <option value="Scheduled To Clean">Scheduled To Clean</option>
+                            <option value="Unavailable">Unavailable</option>
+                        </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-2 control-label"></div>
+                        <div class="col-sm-10">
+                            <a href="#!/room" class="btn btn-default"><i class="glyphicon glyphicon-arrow-left"></i> Go Back</a>
+                            <button type="submit" ng-click="editRoom()" class="btn btn-success">Update Room</button>
+                        </div>
+                    </div>
+
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+</div>

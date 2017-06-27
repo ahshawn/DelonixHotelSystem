@@ -36,6 +36,26 @@ namespace DelonixRegiaHotelSystem.Controllers.Api
 
             return Ok(orderDetail);
         }
+
+        [ResponseType(typeof(OrderDetail))]
+        [Route("occupiedroom/{id:int}")]
+        public async Task<IHttpActionResult> GetOccupiedRoomNumber(int id)
+        {
+            Room findRoomStatus = db.Rooms.SingleOrDefault(r => r.roomID == id && r.Status == "Occupied");
+            if (findRoomStatus == null)
+            {
+                return NotFound();
+
+            }
+            OrderDetail orderDetail = await db.OrderDetails.Where(r => r.roomID == id).FirstOrDefaultAsync();
+            if (orderDetail == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(orderDetail);
+        }
+
         // GET: api/OrderDetails/5
         [ResponseType(typeof(OrderDetail))]
         public async Task<IHttpActionResult> GetOrderDetail(int id)
@@ -93,7 +113,7 @@ namespace DelonixRegiaHotelSystem.Controllers.Api
         [ResponseType(typeof(OrderDetail))]
         public async Task<IHttpActionResult> PostOrderDetail(OrderDetail orderDetail)
         {
-            orderDetail.totalNumberOfDays = (int) (orderDetail.CheckOutTime - orderDetail.CheckInTime).TotalDays;
+            orderDetail.totalNumberOfDays = (int)(orderDetail.CheckOutTime - orderDetail.CheckInTime).TotalDays;
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);

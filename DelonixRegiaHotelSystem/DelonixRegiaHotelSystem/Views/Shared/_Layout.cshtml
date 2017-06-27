@@ -21,11 +21,24 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                    <li>@Html.ActionLink("Reports", "Index", "Report")</li>
-                </ul>
+                <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                <li>@Html.ActionLink("About", "About", "Home")</li>
+                <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                <li><a href="/App#!/bookingdetail">Booking Details and Checkout</a></li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Reports
+                        <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/App#!/room">Room Report</a></li>
+                        <li><a href="/App#!/occupancy">Occupancy Report</a></li>
+                        <li><a href="/App#!/occupancy/all">All Occupancy Report</a></li>
+                        @if (User.IsInRole("Admin") || User.IsInRole("Management"))
+                        {
+                            <li><a href="/App#!/occupancy/statistic">Occupancy Statistics Report</a></li>
+                        }
+                    </ul>
+                </li>
+            </ul>
                 @Html.Partial("_LoginPartial")
             </div>
         </div>

@@ -14,6 +14,6 @@ namespace DelonixRegiaHotelSystem.Models
         public double roomPrice { get; set; }
         public int roomFloor { get; set; }
         public string roomRemarks { get; set; }
-        public string Status { get; set; }
+        public string Status { get; set; } //1
     }
 }

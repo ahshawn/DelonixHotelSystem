@@ -1,0 +1,117 @@
+<div class="container">
+    <div class="row">
+        <h1>Update Order Details
+        </h1>
+        <hr />
+        <div class="spinner" ng-show="loader">
+            <div class="bounce1"></div>
+            <div class="bounce2"></div>
+            <div class="bounce3"></div>
+        </div>
+        <div class="row" ng-if="success">
+            <div class="panel panel-success">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Update Success</h3>
+                </div>
+                <div class="panel-body">
+                    {{ success }}
+                </div>
+            </div>
+        </div>
+        <div class="col-md-offset-4" ng-if="!loader">
+
+            <div class="row">
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Current Room: </label>
+                        <div class="col-sm-10">
+                            <p class="form-control-static">{{ oldRoom }}</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Check-in Date: </label>
+                        <div class="col-sm-10">
+                            <input id="floor" type="date" min="2013-01-01" max="2030-12-31" ng-model="edit.Order.CheckInTime" class="form-control" placeholder="E.g. yyyy/MM/dd"
+                                required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Check-out Date: </label>
+                        <div class="col-sm-10">
+                            <input id="floor" type="date" min="{{ edit.Order.CheckInTime | date:'yyyy-MM-dd' }}" ng-min="edit.Order.CheckInTime" max="2030-12-31"
+                                ng-model="edit.Order.CheckOutTime" class="form-control" placeholder="E.g. yyyy/MM/dd" required="required">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Available Room</label>
+                        <div class="col-sm-10">
+                            <select class="form-control" ng-model="edit.Order.roomID">
+                            <option ng-repeat="s in edit.AvailableRoom" value="{{s.roomID}}">{{s.roomID}}</option>
+                        </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Room Type: </label>
+                        <div class="col-sm-10">
+                            <p class="form-control-static">{{ edit.Order.roomType }}</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Room Price: </label>
+                        <div class="col-sm-10">
+                            <p class="form-control-static">{{ edit.Order.roomPrice | currency }}</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Room Floor: </label>
+                        <div class="col-sm-10">
+                            <p class="form-control-static">{{ edit.Order.roomFloor }}</p>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="floor" class="col-sm-2 control-label">Adult</label>
+                        <div class="col-sm-10">
+                            <input id="floor" type="number" ng-model="edit.Order.totalAdult" class="form-control" placeholder="E.g. 1">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="floor" class="col-sm-2 control-label">Children</label>
+                        <div class="col-sm-10">
+                            <input id="floor" type="number" ng-model="edit.Order.totalChild" class="form-control" placeholder="E.g. 1">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="floor" class="col-sm-2 control-label">Total Guest</label>
+                        <div class="col-sm-10">
+                            <p class="form-control-static">{{ edit.Order.totalNumberOfGuest}}</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="floor" class="col-sm-2 control-label">Number of Days</label>
+                        <div class="col-sm-10">
+                            <p class="form-control-static">{{ edit.Order.totalNumberOfDays }}</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="floor" class="col-sm-2 control-label">Estimated Cost</label>
+                        <div class="col-sm-10">
+                            <p class="form-control-static">{{ edit.Order.totalCost | currency }}</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-2 control-label"></div>
+                        <div class="col-sm-10">
+                            <a href="#!/bookingdetail" class="btn btn-default"><i class="glyphicon glyphicon-arrow-left"></i> Go Back</a>
+                            <button type="submit" ng-click="updateOrder()" class="btn btn-success">Update</button>
+                        </div>
+                    </div>
+
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+</div>

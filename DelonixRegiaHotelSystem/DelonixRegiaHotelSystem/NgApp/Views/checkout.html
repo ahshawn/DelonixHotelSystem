@@ -1,0 +1,168 @@
+<div class="container">
+    <div class="row">
+        <h1>Checkout <a ng-click="print()" class="btn btn-primary"><span class="glyphicon glyphicon-print"></span> Print</a>
+        </h1>
+        <hr />
+        <div class="spinner" ng-show="loader">
+            <div class="bounce1"></div>
+            <div class="bounce2"></div>
+            <div class="bounce3"></div>
+        </div>
+        <div class="row" ng-if="success">
+            <div class="panel panel-success">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Checkout Success</h3>
+                </div>
+                <div class="panel-body">
+                    {{ success }}
+                </div>
+            </div>
+        </div>
+        <div ng-if="!loader">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Order Detail Id:</th>
+                        <th>{{model.Order.orderDetailID}}</th>
+                        <th>Customer Particular</th>
+                        <th></th>
+                        <th>Payment Details</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Current Room: </td>
+                        <td>{{ model.Order.roomID }}</td>
+                        <td>Name: </td>
+                        <td>{{ model.Customer.customerFirstName }} {{ model.Customer.customerLastName }}</td>
+                        <td>Payment Type: </td>
+                        <td>{{ model.Payment.paymentType }}</td>
+                    </tr>
+                    <tr>
+                        <td>Check-in Date : </td>
+                        <td>{{ model.Order.CheckInTime | date:'yyyy-MM-dd' }}</td>
+                        <td>Contact: </td>
+                        <td>{{ model.Customer.customerContactNumber }}</td>
+                        <td ng-show="model.Payment.paymentType == 'Credit Card'">Card Expiry: </td>
+                        <td ng-show="model.Payment.paymentType == 'Credit Card'">{{ model.Payment.paymentExpiryMonth + "/" + model.Payment.paymentExpiryYear }}</td>
+                    </tr>
+                    <tr>
+                        <td>Check-out Date : </td>
+                        <td>{{ model.Order.CheckOutTime | date:'yyyy-MM-dd' }}</td>
+                        <td>Address: </td>
+                        <td>{{ model.Customer.customerAddress }}</td>
+                        <td ng-show="model.Payment.paymentType == 'Credit Card'">Card CVC: </td>
+                        <td ng-show="model.Payment.paymentType == 'Credit Card'">{{ model.Payment.paymentCVC }}</td>
+                    </tr>
+                    <tr>
+                        <td>Room Type : </td>
+                        <td>{{ model.Order.roomType }}</td>
+                        <td>Email: </td>
+                        <td>{{ model.Customer.customerEmail }}</td>
+                        <td ng-show="model.Payment.paymentType == 'Credit Card'">Credit Card Number: </td>
+                        <td ng-show="model.Payment.paymentType == 'Credit Card'">{{ model.Payment.paymentCreditCardNumber }}</td>
+                    </tr>
+                    <tr>
+                        <td>Room Price : </td>
+                        <td>{{ model.Order.roomPrice }}</td>
+                        <td>NRIC: </td>
+                        <td>{{ model.Customer.customerNRIC }}</td>
+                    </tr>
+                    <tr>
+                        <td>Room Floor : </td>
+                        <td>{{ model.Order.roomFloor }}</td>
+                        <td>Nationality: </td>
+                        <td>{{ model.Customer.customerNationality }}</td>
+                    </tr>
+                    <tr>
+                        <td>Adult : </td>
+                        <td>{{ model.Order.totalAdult }}</td>
+                        <td>Passport Number: </td>
+                        <td>{{ model.Customer.customerPassportNumber }}</td>
+                    </tr>
+                    <tr>
+                        <td>Children : </td>
+                        <td>{{ model.Order.totalChild }}</td>
+                        <td>Date Of Birth (yyyy-MM-dd): </td>
+                        <td>{{ model.Customer.customerDOBYear }}-{{ model.Customer.customerDOBMonth }}-{{ model.Customer.customerDOBDay
+                            }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Total Guest : </td>
+                        <td>{{ model.Order.totalNumberOfGuest }}</td>
+
+                    </tr>
+                    <tr>
+                        <td>Room Cost : </td>
+                        <td>{{ model.RoomCost | currency}}</td>
+                    </tr>
+                    <tr>
+                        <td>Checkout Status : </td>
+                        <td><span ng-class="{'text-success': model.Order.CheckoutStatus == 'Done', 'text-danger': model.Order.CheckoutStatus == 'Not Done'}">{{ model.Order.CheckoutStatus}}</span></td>
+                    </tr>
+                    <tr>
+                        <td>Room Cost : </td>
+                        <td>{{ model.RoomCost | currency}}</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>Room Cost : </td>
+                        <td>{{ model.RoomCost | currency}}</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>Additional Cost (If Any): $</td>
+                        <td><input type="number" ng-model="model.AdditionalCost" step="0.01" class="form-control" placeholder="E.g. 100.00"></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>Total Cost: </td>
+                        <td>{{ model.Order.totalCost | currency}}</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td class="align-right"><a href="#!/room" class="btn btn-default"><i class="glyphicon glyphicon-arrow-left"></i> Go Back</a>                            </td>
+                        </td>
+                        <td>
+                            <button type="submit" class="btn btn-success" data-toggle="modal" data-target="#checkOutBox">Checkout</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+</div>
+<!-- Modal -->
+<div class="modal fade" id="checkOutBox" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Check Out Confirmation</h4>
+            </div>
+            <div class="modal-body">
+                Are you sure you want to checkout?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-success" data-dismiss="modal" ng-click="checkOut()">Confirm Checkout</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,76 @@
+﻿<div class="container">
+    <div class="row">
+        <h1>Add a room</h1>
+        <hr />
+        <div class="row" ng-if="success">
+            <div class="panel panel-success">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Update Success</h3>
+                </div>
+                <div class="panel-body">
+                    {{ success }}
+                </div>
+            </div>
+        </div>
+        <div class="row" ng-if="failure">
+            <div class="panel panel-warning">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Something went wrong!</h3>
+                </div>
+                <div class="panel-body">
+                    {{ failure }}
+                </div>
+            </div>
+        </div>
+        <div class="col-md-offset-3 col-md-9">
+            <form class="form-horizontal" ng-submit="addRoom()">
+                <div class="form-group">
+                    <label for="roomtype" class="col-sm-2 control-label">Room Type</label>
+                    <div class="col-sm-10">
+                        <select class="form-control" ng-model="new.Room.roomType">
+                            <option ng-repeat="p in new.SelectRooms" value="{{p.item}}">{{p.item}}</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="price" class="col-sm-2 control-label">Price $</label>
+                    <div class="col-sm-10">
+                        <input id="price" type="number" ng-model="new.Room.roomPrice" step="0.01" class="form-control" placeholder="E.g. 199.99"
+                            required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="floor" class="col-sm-2 control-label">Floor</label>
+                    <div class="col-sm-10">
+                        <input id="floor" type="number" ng-model="new.Room.roomFloor" class="form-control" placeholder="E.g. 12" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label id="remark" for="floor" class="col-sm-2 control-label">Remarks</label>
+                    <div class="col-sm-10">
+                        <input id="remark" type="text" ng-model="new.Room.roomRemarks" class="form-control" placeholder="E.g. Any Comments? Leave Blank if None">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label id="status" for="floor" class="col-sm-2 control-label">Room Status</label>
+                    <div class="col-sm-10">
+                        <select class="form-control" ng-model="new.Room.Status">
+                            <option ng-repeat="s in new.SelectStatus" value="{{s.item}}">{{s.item}}</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-2 control-label"></div>
+                    <div class="col-sm-10">
+                        <a href="#!/room" class="btn btn-default"><i class="glyphicon glyphicon-arrow-left"></i> Go Back</a>
+                        <button type="submit" class="btn btn-primary">Add Room</button>
+                    </div>
+                </div>
+
+
+            </form>
+        </div>
+    </div>
+
+
+</div>

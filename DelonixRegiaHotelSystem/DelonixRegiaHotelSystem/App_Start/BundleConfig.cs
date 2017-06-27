@@ -51,10 +51,11 @@ namespace DelonixRegiaHotelSystem
             /* ----- SHAWN BUNDLE ----- */
 
             bundles.Add(new ScriptBundle("~/bundles/AngularReport")
-                .IncludeDirectory("~/ReportsApp", "*.js", true));
+                .IncludeDirectory("~/NgApp", "*.js", true));
 
             bundles.Add(new StyleBundle("~/Content/reportcss").Include(
-                "~/Content/report.css"));
+                "~/Content/report.css",
+                "~/Content/ui-bootstrap-csp.css"));
 
             /* ----- END SHAWN BUNDLE ----- */
         }

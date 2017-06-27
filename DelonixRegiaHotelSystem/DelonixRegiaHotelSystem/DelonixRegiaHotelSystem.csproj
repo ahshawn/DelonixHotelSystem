@@ -199,6 +199,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AppController.cs" />
     <Compile Include="Controllers\BookingController.cs" />
     <Compile Include="Controllers\Api\BookingDetailsController.cs" />
     <Compile Include="Controllers\Api\CustomersController.cs" />
@@ -210,7 +211,6 @@
     <Compile Include="Controllers\Api\PaymentsController.cs" />
     <Compile Include="Controllers\Api\RoomsController.cs" />
     <Compile Include="Controllers\Api\StaffsController.cs" />
-    <Compile Include="Controllers\ReportController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -257,6 +257,7 @@
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\report.css" />
+    <Content Include="Content\ui-bootstrap-csp.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -265,19 +266,25 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ReportsApp\app.js" />
-    <Content Include="ReportsApp\Controllers\AddRoomCtrl.js" />
-    <Content Include="ReportsApp\Controllers\AllGuestCtrl.js" />
-    <Content Include="ReportsApp\Controllers\EditRoomCtrl.js" />
-    <Content Include="ReportsApp\Controllers\OccupantsCtrl.js" />
-    <Content Include="ReportsApp\Controllers\RoomCtrl.js" />
-    <Content Include="ReportsApp\ExportToExcel.js" />
-    <Content Include="ReportsApp\Services\CustomerService.js" />
-    <Content Include="ReportsApp\Services\OrderService.js" />
-    <Content Include="ReportsApp\Services\RoomService.js" />
-    <Content Include="ReportsApp\Views\addroom.html" />
-    <Content Include="ReportsApp\Views\editroom.html" />
-    <Content Include="ReportsApp\Views\searchoccupancy.html" />
+    <Content Include="NgApp\app.js" />
+    <Content Include="NgApp\Controllers\AddRoomCtrl.js" />
+    <Content Include="NgApp\Controllers\AllGuestsCtrl.js" />
+    <Content Include="NgApp\Controllers\EditRoomCtrl.js" />
+    <Content Include="NgApp\Controllers\OccupancyStatistic.js" />
+    <Content Include="NgApp\Controllers\OccupantsCtrl.js" />
+    <Content Include="NgApp\Controllers\RoomCtrl.js" />
+    <Content Include="NgApp\ExportToExcel.js" />
+    <Content Include="NgApp\lib\angular-chart.min.js" />
+    <Content Include="NgApp\lib\Chart.min.js" />
+    <Content Include="NgApp\Services\CustomerService.js" />
+    <Content Include="NgApp\Services\HighChart.js" />
+    <Content Include="NgApp\Services\OrderService.js" />
+    <Content Include="NgApp\Services\RoomService.js" />
+    <Content Include="NgApp\Views\addroom.html" />
+    <Content Include="NgApp\Views\allguestinallroom.html" />
+    <Content Include="NgApp\Views\editroom.html" />
+    <Content Include="NgApp\Views\occupancystatistic.html" />
+    <Content Include="NgApp\Views\searchoccupancy.html" />
     <Content Include="Scripts\angular-animate.js" />
     <Content Include="Scripts\angular-animate.min.js" />
     <Content Include="Scripts\angular-aria.js" />
@@ -303,6 +310,10 @@
     <Content Include="Scripts\angular-scenario.js" />
     <Content Include="Scripts\angular-touch.js" />
     <Content Include="Scripts\angular-touch.min.js" />
+    <Content Include="Scripts\angular-ui\ui-bootstrap-tpls.js" />
+    <Content Include="Scripts\angular-ui\ui-bootstrap-tpls.min.js" />
+    <Content Include="Scripts\angular-ui\ui-bootstrap.js" />
+    <Content Include="Scripts\angular-ui\ui-bootstrap.min.js" />
     <Content Include="Scripts\angular.js" />
     <Content Include="Scripts\angular.min.js" />
     <Content Include="Scripts\app.js" />
@@ -1049,7 +1060,7 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\order.js" />
     <Content Include="Scripts\payment.js" />
-    <Content Include="ReportsApp\Views\room.html" />
+    <Content Include="NgApp\Views\room.html" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\room.js" />
@@ -1104,6 +1115,7 @@
     <Content Include="Views\Booking\ViewListOfOrder.cshtml" />
     <Content Include="Views\Booking\ViewListOfPayment.cshtml" />
     <Content Include="Views\Shared\_NGLayout.cshtml" />
+    <Content Include="Views\App\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

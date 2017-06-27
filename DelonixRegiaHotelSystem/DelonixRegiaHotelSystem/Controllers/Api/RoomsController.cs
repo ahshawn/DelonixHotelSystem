@@ -13,6 +13,7 @@ using DelonixRegiaHotelSystem.Models;
 
 namespace DelonixRegiaHotelSystem.Controllers.Api
 {
+    [RoutePrefix("api/rooms")]
     public class RoomsController : ApiController
     {
         private ApplicationDbContext db = new ApplicationDbContext();
@@ -34,6 +35,12 @@ namespace DelonixRegiaHotelSystem.Controllers.Api
             }
 
             return Ok(room);
+        }
+
+        [Route("available")]
+        public IQueryable<Room> GetAvailableRoom()
+        {
+            return db.Rooms.Where(s => s.Status == "Available");
         }
 
         // PUT: api/Rooms/5
