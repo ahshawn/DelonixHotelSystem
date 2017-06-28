@@ -1,0 +1,33 @@
+﻿@{
+    Layout = "~/views/shared/_Layout.cshtml";
+}
+@section scripts {
+    @Scripts.Render("~/bundles/room")
+    <script type="text/javascript" src="~/Scripts/order.js"></script>
+}
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h2 class="panel-title">Select Avaliable Room</h2>
+            </div>
+            <div class="panel-body">
+
+                <table cellpadding="10" data-bind="foreach: rooms">
+                    <tr>
+
+                        <td valign="top">
+                            Room Type: <span data-bind="text: roomType" ></span><br />
+                            Room Price Per Night: $<span data-bind="text: roomPrice"></span><br />
+                            <a href="~/Booking/creatingCustomerParticular" class="btn btn-info">Select</a>
+                        </td>
+                    </tr>
+
+                </table>
+            </div>
+        </div>
+
+        <div class="alert alert-danger" data-bind="visible: error"><p data-bind="text: error"></p></div>
+    </div>
+</div>

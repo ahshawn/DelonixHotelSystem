@@ -1,0 +1,129 @@
+﻿@section scripts {
+    @Scripts.Render("~/bundles/Duty")
+}
+
+@{
+    ViewBag.Title = "Duty";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Staff Duties</h1>
+
+<br>
+
+
+<nav>
+    <form class="navbar-form navbar-right">
+        <input type="text" class="form-control" placeholder="Filter Duty" data-bind="value: searchString2, valueUpdate: 'afterkeydown'">
+    </form>
+</nav>
+
+<h3>Duty list</h3>
+
+
+
+<div class="col-md-12 main">
+
+    <h4 class="panel-header">List of Duties</h4>
+
+
+    <br />
+
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Duty ID</th>
+                    <th>Staff First Name:</th>
+                    <th>Duty Date</th>
+                    <th>Duty</th>
+                    <th>Duty Details</th>
+                </tr>
+            </thead>
+
+            <tbody data-bind="foreach: searchDutyType">
+                <tr>
+                    <td><span data-bind="text: Id"></span></td>
+                    <td><span data-bind="text: StaffFirstName"></span></td>
+                    <td><span data-bind="text: DutyPeriod"></span></td>
+                    <td><span data-bind="text: TypeOfDuty"></span></td>
+
+                    <td><a href="#" data-bind="click:$parent.getDutyDetails" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#DutyModal">Duty Details</a></td>
+
+
+                </tr>
+            </tbody>
+        </table>
+
+       
+        <br />
+    </div>
+    <br />
+    <br />
+</div>
+<br />
+
+
+
+<div class="modal fade" id="DutyModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Duty Details</h4>
+            </div>
+
+            <div class="">
+                <div class="" id="myModal" data-bind="if: details()">
+                    <form class="form-horizontal">
+                        <table class="table">
+                            <tr>
+                                <td>Duty ID: <input type="text" textarea rows="1" cols="255" id="Id" class="form-control" readonly data-bind="value: details().Id"></td>
+                            </tr>
+                            <tr>
+                                <td>Duty Name: <input type="text" id="TypeOfDuty" class="form-control"readonly data-bind="value: details().TypeOfDuty"></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    First Name: <input type="text" id="StaffFirstName" class="form-control"readonly data-bind="value: details().StaffFirstName">
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    Duty Period: <input type="text" id="DutyPeriod" class="form-control" readonly data-bind="value: details().DutyPeriod">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Description of Duty: <input type="text" id="DutyDescription" class="form-control" readonly data-bind="value: details().DutyDescription">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Location of Duty: <input type="text" id="DutyLocation" class="form-control" readonly data-bind="value: details().DutyLocation">
+                                </td>
+                            </tr>
+
+                        </table>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<p>Print Duty List</p>
+
+<button class="btn btn-primary btn-xs" onclick="myFunction()">Print</button>
+
+<script>
+                function myFunction() {
+                window.print();
+                }
+</script>

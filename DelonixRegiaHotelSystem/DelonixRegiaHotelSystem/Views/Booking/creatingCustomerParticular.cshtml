@@ -1,0 +1,128 @@
+﻿
+@{
+    ViewBag.Title = "Creating Customer Particular";
+    Layout = "~/views/shared/_Layout.cshtml";
+}
+@section scripts {
+    @Scripts.Render("~/bundles/app")
+}
+
+
+
+
+<h2>Create Booking (Customer Particulars)</h2>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h2 class="panel-title">Add Customer</h2>
+    </div>
+
+    <div class="panel-body">
+        <div data-bind="popupTemplate: 'templateName'">
+            <form class="form-horizontal" data-bind="submit: addCustomer">
+                <table class="table">
+                    <tr>
+                        <td>NRIC</td>
+                        <td><input type="text" class="form-control" required placeholder="Enter your 7 digit NRIC" autocomplete="on" id="inputcustomerNRIC" data-bind="value:newCustomer.customerNRIC" /></td>
+                    </tr>
+                    <tr>
+                        <td>First Name</td>
+                        <td><input type="text" class="form-control" required placeholder="Enter your First Name" autocomplete="on" id="inputcustomerFirstName" data-bind="value:newCustomer.customerFirstName" /></td>
+                    </tr>
+                    <tr>
+                        <td>Last Name</td>
+                        <td><input type="text" class="form-control" required placeholder="Enter your Last Name" autocomplete="on"id="inputcustomerLastName" data-bind="value:newCustomer.customerLastName" /></td>
+                    </tr>
+                    <tr>
+                        <td>Address</td>
+                        <td><input type="text" class="form-control" required placeholder="Enter your Full Address" autocomplete="on"  id="inputcustomerAddress" data-bind="value:newCustomer.customerAddress" /></td>
+                    </tr>
+                    <tr>
+                        <td>Contact Number</td>
+                        <td><input type="number" class="form-control" required placeholder="Enter your phoneNumber" autocomplete="on" id="inputcustomerContactNumber" data-bind="value:newCustomer.customerContactNumber" /></td>
+                    </tr>
+                    <tr>
+                        <td>Email</td>
+                        <td><input type="text" class="form-control" required placeholder="Input valid Email Address" id="inputcustomerEmail" data-bind="value:newCustomer.customerEmail" /></td>
+                    </tr>
+                    <tr>
+                        <td>Date of Birth Day</td>
+                        <td>
+                            <select class="form-control" id="inputcustomerLastName" data-bind="value:newCustomer.customerDOBDay">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                                <option value="13">13</option>
+                                <option value="14">14</option>
+                                <option value="15">15</option>
+                                <option value="16">16</option>
+                                <option value="17">17</option>
+                                <option value="18">18</option>
+                                <option value="19">19</option>
+                                <option value="20">20</option>
+                                <option value="21">21</option>
+                                <option value="22">22</option>
+                                <option value="23">23</option>
+                                <option value="24">24</option>
+                                <option value="25">25</option>
+                                <option value="26">26</option>
+                                <option value="27">27</option>
+                                <option value="28">28</option>
+                                <option value="29">29</option>
+                                <option value="30">30</option>
+                                <option value="31">31</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Date of Birth Month</td>
+                        <td>
+                            <select class="form-control" id="inputcustomerLastName" data-bind="value:newCustomer.customerDOBMonth">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Date of Birth Year</td>
+                        <td><input type="number" step="any" class="form-control" id="inputcustomerDOBYear" data-bind="value:newCustomer.customerDOBYear" /></td>
+                    </tr>
+                    <tr>
+                        <td>Nationality</td>
+                        <td><input type="text" step="any" class="form-control" required placeholder="Enter your Nationality" autocomplete="on" id="inputcustomerNationality" data-bind="value:newCustomer.customerNationality" /></td>
+                    </tr>
+                    <tr>
+                        <td>Passport Number</td>
+                        <td><input type="number" step="any" class="form-control" required placeholder="Enter your Passport Number" autocomplete="on" id="inputcustomerPassportNumber" data-bind="value:newCustomer.customerPassportNumber" /></td>
+                    </tr>
+
+                    <tr>
+                        <td align="center" colspan="2">
+                            <button type="submit" class="btn btn-primary">Next</button>
+                            
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+</div>

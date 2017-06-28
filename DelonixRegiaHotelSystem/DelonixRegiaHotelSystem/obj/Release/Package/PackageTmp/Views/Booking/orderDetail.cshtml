@@ -1,0 +1,45 @@
+﻿
+@{
+    ViewBag.Title = "orderDetail";
+    Layout = "~/views/shared/_Layout.cshtml";
+}
+@section scripts {
+    @Scripts.Render("~/bundles/app")
+    
+}
+
+<h2>orderDetail</h2>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h2 class="panel-title">Details</h2>
+    </div>
+    <form class="form-horizontal">
+        <table class="table">
+            <tr>
+                <td>Customer ID</td>
+                <td><input type="text" class="form-control" id="paymentCreditCardNumber" read data-bind="value:customerDetails().customerID" /></td>
+            </tr>
+
+            <tr>
+                <td>Customer First Name:</td>
+                <td><input type="text" class="form-control" id="paymentCreditCardNumber" read data-bind="value:customerDetails().customerFirstName" /></td>
+            </tr>
+            <tr>
+                <td>Customer Last Name:</td>
+                <td><input type="text" class="form-control" id="paymentCreditCardNumber" read data-bind="value:customerDetails().customerLastName" /></td>
+            </tr>
+            <tr>
+                <td>Contact Number</td>
+                <td><input type="number" class="form-control" id="paymentExpiryMonth" read data-bind="value:customerDetails().customerContactNumber" /></td>
+            </tr>
+            <tr>
+                <td>Email Address</td>
+                <td><input type="text" class="form-control" id="paymentExpiryYear" read data-bind="value:customerDetails().customerEmail" /></td>
+            </tr>
+            <tr>
+                
+
+            </tr>
+        </table>
+    </form>
+</div>

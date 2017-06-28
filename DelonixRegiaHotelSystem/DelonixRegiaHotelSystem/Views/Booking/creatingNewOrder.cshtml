@@ -1,0 +1,83 @@
+﻿
+@{
+    ViewBag.Title = "creatingNewOrder";
+    Layout = "~/views/shared/_Layout.cshtml";
+}
+@section scripts {
+    @Scripts.Render("~/bundles/order")
+}
+<div class="panel-body">
+    <div data-bind="popupTemplate: 'templateName'">
+        <form class="form-horizontal" data-bind="submit: addOrder">
+            <table class="table">
+                <tr>
+                    <td>Total Number Of Guest</td>
+                    <td><input type="number" class="form-control"  required placeholder=" Please enter Total Number Of Guest" autocomplete="on" data-bind="value:newOrder.totalNumberOfGuest" /></td>
+                </tr>
+                <tr>
+                    <td>Total Number Of Days</td>
+                    <td><input type="number" class="form-control"  required placeholder=" Please enter Total Number Of Days Staying" autocomplete="on" data-bind="value:newOrder.totalNumberOfDays" /></td>
+                </tr>
+                <tr>
+                    <td>Select Room Type</td>
+                    <td>
+                        <select class="form-control" id="inputcustomerLastName" data-bind="value:newOrder.roomType">
+                            <option value="Single-Bed">Single-Bed</option>
+                            <option value="Double-Bed">Double-Bed</option>
+                            <option value="Queen-size Bed Room">Queen-size Bed Room</option>
+                            <option value="King-size Bed Room">King-size Bed Room</option>
+                        </select>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>Room Floor Perfer</td>
+                    <td>
+                        <select class="form-control"  data-bind="value:newOrder.roomFloor">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                            <option value="12">12</option>
+                            <option value="13">13</option>
+                            <option value="14">14</option>
+                            <option value="15">15</option>
+                         
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Room Remarks</td>
+                    <td><input type="text" class="form-control"  required placeholder="Addtional Remarks" autocomplete="on" data-bind="value:newOrder.roomRemarks" /></td>
+                </tr>
+
+
+                <tr>
+                    <td><input type="hidden" class="form-control" value="" autocomplete="on" data-bind="value:newOrder.roomPrice" /></td>
+                    <td><input type="hidden" class="form-control"  value="" autocomplete="on" data-bind="value:newOrder.paymentID" /></td>
+                    <td><input type="hidden" class="form-control" value="" autocomplete="on" data-bind="value:newOrder.orderRemarks" /></td>
+                    <td><input type="hidden" class="form-control" value="" autocomplete="on" data-bind="value:newOrder.totalCost" /></td>
+
+                </tr>
+
+
+
+
+                <tr>
+                    <td align="center" colspan="2">
+                        <button type="submit" class="btn btn-primary">Next</button>
+
+
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+    </div>

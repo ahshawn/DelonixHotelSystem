@@ -1,0 +1,201 @@
+﻿@section scripts {
+    @Scripts.Render("~/bundles/Duty")
+}
+
+@{
+    ViewBag.Title = "Duty";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Staff Duties</h1>
+
+<br>
+
+
+<nav>
+    <form class="navbar-form navbar-right">
+        <input type="text" class="form-control" placeholder="Filter Records" data-bind="value: searchString2, valueUpdate: 'afterkeydown'">
+    </form>
+</nav>
+
+<h3>Housekeeping Report</h3>
+
+
+
+<div class="col-md-12 main">
+
+    <h4 class="panel-header">List of Duties</h4>
+
+    <div class="row placeholders">
+        <div class="col-xs-6 col-sm-3 placeholder">
+              <h4>Total Number of Duties:</h4>
+            <span class="text-muted" data-bind="text: duty().length"></span>
+        </div>
+
+
+    </div>
+    <br />
+   
+
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Duty ID</th>
+                    <th>Staff First Name:</th>
+                    <th>Duty Date</th>
+                    <th>Duty</th>
+                    <th>Duty Details</th>
+                </tr>
+            </thead>
+
+            <tbody data-bind="foreach: searchDutyType">
+                <tr>
+                    <td><span data-bind="text: Id"></span></td>
+                    <td><span data-bind="text: StaffFirstName"></span></td>
+                    <td><span data-bind="text: DutyPeriod"></span></td>
+                    <td><span data-bind="text: TypeOfDuty"></span></td>
+                  
+                    <td><a href="#" data-bind="click:$parent.getDutyDetails" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#DutyModal">Duty Details</a></td>
+
+
+                </tr>
+            </tbody>
+        </table>
+
+        <button type="button" class="btn btn-success btn" data-toggle="modal" data-target="#addDuty">Add New Duty</button>
+        <br />
+    </div>
+    <br />
+    <br />
+</div>
+<br />
+
+
+
+<div class="modal fade" id="DutyModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Duty Details</h4>
+            </div>
+
+            <div class="">
+                <div class="" id="myModal" data-bind="if: details()">
+                    <form class="form-horizontal">
+                        <table class="table">
+                            <tr>
+                                <td>Duty ID: <input type="text" textarea rows="1" cols="255" id="Id" class="form-control" readonly data-bind="value: details().Id"></td>
+                            </tr>
+                            <tr>
+                                <td>Duty Name: <input type="text" id="TypeOfDuty" class="form-control" data-bind="value: details().TypeOfDuty"></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    First Name: <input type="text" id="StaffFirstName" class="form-control" data-bind="value: details().StaffFirstName">
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    Duty Period: <input type="text" id="DutyPeriod" class="form-control" data-bind="value: details().DutyPeriod">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                   Description of Duty: <input type="text" id="DutyDescription" class="form-control" data-bind="value: details().DutyDescription">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Location of Duty: <input type="text" id="DutyLocation" class="form-control" data-bind="value: details().DutyLocation">
+                                </td>
+                            </tr>
+                            
+
+                            <tr>
+                                <td colspan="2" align="center">
+                                    <a href="#" data-bind="click:saveDuty" class="btn btn-primary">Update Duty</a>
+                                </td>
+                            </tr>
+                            <tr><td colspan="2" align="center"><a href="#" data-bind="click:removeDuty" class="btn btn-primary btn">Delete Duty</a></td></tr>
+
+
+                        </table>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" id="addDuty">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <!-- Add New Staff -->
+            <div class="" id="addDuty">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h2 class="panel-title">Add New Duty</h2>
+                    </div>
+
+                    <div class="panel-body">
+                        <form class="form-horizontal" data-bind="submit: addDuty">
+                            <table class="table">
+                                <tr>
+                                    <td>Duty ID</td>
+                                    <td><input type="number" required cols="255" class="form-control" data-bind="value:newDuty.Id" /></td>
+                                </tr>
+                                <tr>
+                                    <td>TypeOfDuty</td>
+                                    <td><input type="text" required cols="255" class="form-control" data-bind="value:newDuty.TypeOfDuty"></td>
+                                </tr>
+                                <tr>
+                                    <td>Staff First Name</td>
+                                    <td><input type="text" required cols="255" class="form-control" data-bind="value:newDuty.StaffFirstName"></td>
+                                </tr>
+                                <tr>
+                                    <td>Period of Duty</td>
+                                    <td><input type="date" required cols="255" class="form-control" data-bind="value:newDuty.DutyPeriod"></td>
+                                </tr>
+
+
+                                <tr>
+                                    <td>Description of Duty</td>
+                                    <td><input type="text" required cols="255" class="form-control" data-bind="value:newDuty.DutyDescription"></td>
+                                </tr>
+                                <tr>
+                                    <td>Location of Duty</td>
+                                    <td><input type="number" required step="any" class="form-control" data-bind="value:newDuty.DutyLocation" /></td>
+                                </tr>
+                                
+                                <tr>
+                                    <td align="center" colspan="2">
+                                        <button type="submit" class="btn btn-primary">Add Duty</button>
+                                    </td>
+                                </tr>
+                            </table>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--end of add Staff-->
+
+<p>Print Report</p>
+
+<button onclick="myFunction()" type="button" class="btn btn-success">Print</button>
+
+
+
+<script>
+                function myFunction() {
+                window.print();
+                }
+                </script>

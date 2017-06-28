@@ -1,0 +1,73 @@
+﻿    <div class="container" ng-controller="RoomCtrl">
+    <div class="row">
+        <div class="col-md-8">
+            <a href="#!room/add" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Add A Room</a>
+            <a ng-click="print()" class="btn btn-primary"><span class="glyphicon glyphicon-print"></span> Print This Report</a>
+        </div>
+        <div class="col-md-4">
+            <label>Search Keywords: <input ng-model="search"></label>
+
+        </div>
+    </div>
+        <div class="row">
+            <iframe id="txtArea1" style="display:none"></iframe>
+            <div class="spinner" ng-show="loader">
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
+            </div>
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th>Room No.</th>
+                    <th>Type</th>
+                    <th>Price</th>
+                    <th>Floor</th>
+                    <th>Remarks</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody ng-repeat="room in model.Rooms | orderBy: '+roomID' | filter:search">
+                <tr>
+                    <td>{{ room.roomID }}</td>
+                    <td>{{ room.roomType }}</td>
+                    <td>{{ room.roomPrice | currency }}</td>
+                    <td>{{ room.roomFloor }}</td>
+                    <td><span ng-if="room.roomRemarks == null">No Remarks</span><span ng-if="room.roomRemarks !== null">{{ room.roomRemarks }}</span></td>
+                    <td><span ng-class="{'text-success': room.Status == 'Available', 'text-warning': room.Status == 'Scheduled To Clean', 'text-danger': room.Status == 'Occupied', 'text-danger': room.Status == 'Unavailable'}">{{ room.Status }}</span></td>
+                    <td>
+                        <a ng-href="#!/room/edit/{{ room.roomID }}" ng-click="editRoom(room.roomID)" class="btn btn-info btn-sm">
+                            <span class="glyphicon glyphicon-pencil"></span> Edit Room
+                        </a>
+                        <button ng-click="deleteConfirmation(room)" type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteRoom">
+                            <span class="glyphicon glyphicon-trash"></span> Delete Room
+                        </button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <!-- Modal -->
+        <div class="modal fade" id="deleteRoom" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Are you sure you want to delete?</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>Are you sure you want to delete the room : {{  roomIDToDelete }}?</p>
+                        <p>This action is IRREVERSIBLE!</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal" ng-click="confirmDelete(roomIDToDelete)">Delete</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+
+
+

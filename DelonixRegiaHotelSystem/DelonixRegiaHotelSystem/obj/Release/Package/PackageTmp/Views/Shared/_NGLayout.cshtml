@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Delonix Hotel System Management</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Styles.Render("~/Content/reportcss")
+    <script src="~/Scripts/angular.js"></script>
+    <script src="~/Scripts/angular-route.js"></script>
+    <script src="~/Scripts/angular-animate.js"></script>
+    <script src="~/Scripts/angular-touch.js"></script>
+    <script src="~/Scripts/angular-ui/ui-bootstrap.js"></script>
+    <script src="~/Scripts/angular-ui/ui-bootstrap-tpls.js"></script>
+    <script src="~/NgApp/lib/Chart.min.js"></script>
+    <script src="~/NgApp/lib/angular-chart.min.js"></script>
+    <script src="~/NgApp/app.js"></script>
+</head>
+<body>
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            @Html.ActionLink("Control Panel", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                <li>@Html.ActionLink("CreateBooking", "selectRoom", "Booking")</li>
+                <li>@Html.ActionLink("Details", "typesOfReport", "Booking")</li>
+                @if (User.IsInRole("Admin") || User.IsInRole("Management"))
+                {
+                    <li>@Html.ActionLink("Staff Management", "Index", "Staffkeeping")</li>
+                }
+                @if (User.IsInRole("Reception"))
+                {
+                    <li>@Html.ActionLink("Duties", "duty", "Staffkeeping")</li>
+                }
+                <li><a href="/App#!/bookingdetail">Booking Details and Checkout</a></li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        Reports
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/App#!/room">Room Report</a></li>
+                        <li><a href="/App#!/occupancy">Occupancy Report</a></li>
+                        <li><a href="/App#!/occupancy/all">All Occupancy Report</a></li>
+                        @if (User.IsInRole("Admin") || User.IsInRole("Management"))
+                        {
+                            <li><a href="/App#!/occupancy/statistic">Occupancy Statistics Report</a></li>
+                            <li>@Html.ActionLink("Staff Keeping report", "staffDuty", "Staffkeeping")</li>
+                        }
+                    </ul>
+                </li>
+            </ul>
+            @Html.Partial("_LoginPartial")
+        </div>
+    </div>
+</div>
+
+<div class="container body-content">
+    @RenderBody()
+    <hr />
+    <footer>
+        <p>&copy; @DateTime.Now.Year - Delonix Hotel System Management</p>
+    </footer>
+</div>
+
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+@Scripts.Render("~/bundles/AngularReport")
+@RenderSection("scripts", required: false)
+</body>
+</html>

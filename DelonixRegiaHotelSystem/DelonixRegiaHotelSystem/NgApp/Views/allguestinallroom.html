@@ -1,0 +1,37 @@
+﻿<div class="container">
+    <div class="spinner" ng-show="loader">
+        <div class="bounce1"></div>
+        <div class="bounce2"></div>
+        <div class="bounce3"></div>
+    </div>
+    <div ng-if="found.rooms">
+        <div class="row">
+            <a ng-click="print()" class="btn btn-primary"><span class="glyphicon glyphicon-print"></span> Print This Report</a>
+        </div>
+        <div class="row search-result">
+            <div class="col-md-4" ng-repeat="room in found.rooms">
+                <div class="panel panel-default">
+
+                    <div class="panel-heading">Room Number {{ room.roomID}}</div>
+                    <div class="panel-body">
+                        <p>Order Detail Id : {{ room.orderDetailID }}</p>
+                        <p>Room Type : {{room.roomType}}</p>
+                        <p>Room Floor : {{ room.roomFloor }}</p>
+                        <p>Room Price : {{ room.roomPrice | currency }}</p>
+                        <p>Total Adult : {{ room.totalAdult }}</p>
+                        <p>Total Children: {{ room.totalChild }}</p>
+                        <p>Total Guest: {{ room.totalNumberOfGuest}}</p>
+                        <p>Customer Id: {{ room.customerID }}</p>
+                        <p>Total Days: {{ room.totalNumberOfDays }}</p>
+                        <p>Check-in Date: {{ room.CheckInTime | date }}</p>
+                        <p>Check-out Date: {{ room.CheckOutTime | date }}</p>
+                        <p>
+                            Check out status: <span ng-class="{'text-success': room.CheckoutStatus == 'done', 'text-danger': room.CheckoutStatus == 'Not Done'}">{{ room.CheckoutStatus }}</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

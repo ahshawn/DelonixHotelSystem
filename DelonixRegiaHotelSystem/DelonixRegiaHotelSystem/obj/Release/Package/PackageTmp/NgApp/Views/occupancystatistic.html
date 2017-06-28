@@ -1,0 +1,23 @@
+﻿<div class="container">
+    <div class="row">
+        <a ng-click="print()" class="btn btn-primary"><span class="glyphicon glyphicon-print"></span> Print This Report</a>
+    </div>
+
+    <div class="row search-result">
+        <ul class="nav nav-tabs">
+            <li role="presentation" ng-class="{active: isSelected(1)}"><a href="#!/occupancy/statistic" ng-click="select(1)">Daily</a></li>
+            <li role="presentation" ng-class="{active: isSelected(2)}"><a href="#!/occupancy/statistic" ng-click="select(2)">Weekly</a></li>
+            <li role="presentation" ng-class="{active: isSelected(3)}"><a href="#!/occupancy/statistic" ng-click="select(3)">Monthly</a></li>
+            <li role="presentation" ng-class="{active: isSelected(4)}"><a href="#!/occupancy/statistic" ng-click="select(4)">Yearly</a></li>
+        </ul>
+        <div class="col-md-6 col-lg-offset-4">
+            <div class="spinner" ng-show="loader">
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
+            </div>
+            <canvas id="bar" class="chart chart-bar" chart-data="data" chart-labels="labels"> chart-series="series"
+            </canvas>
+        </div>
+    </div>
+</div>

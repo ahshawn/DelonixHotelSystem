@@ -1,0 +1,237 @@
+﻿@section scripts {
+    @Scripts.Render("~/bundles/staff")
+}
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <form class="navbar-form navbar-right">
+        <input type="text" class="form-control" placeholder="Search Staff" data-bind="value: searchStringOne, valueUpdate: 'afterkeydown'">
+    </form>
+
+
+
+<h1>List of Staffs</h1>
+
+
+<div class="col-md-12 main">
+   
+    <h2 class="panel-header">Staffs Overview</h2> 
+
+
+    <div class="row placeholders">
+        <div class="col-xs-6 col-sm-3 placeholder" ><span class="glyphicon glyphicon-user" style="float:left, 10px " ></span>
+            <h4>Total Number of Staffs:</h4>
+            <span class="text-muted" data-bind="text: staffs().length"></span>
+        </div>
+
+       
+    </div>
+    <br />
+
+  
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Staff ID</th>
+                    <th>Staff First Name:</th>
+                    <th>Staff Email</th>
+                    <th>Staff NRIC</th>
+                    <th>Staff Contact Number</th>
+                    <th>More Detail</th>
+                </tr>
+            </thead>
+
+            <tbody data-bind="foreach: searchStaffs">
+                <tr>
+                    <td><span data-bind="text: StaffId"></span></td>
+                    <td><span data-bind="text: StaffFirstName"></span></td>
+                    <td><span data-bind="text: StaffEmail"></span></td>
+                    <td><span data-bind="text: StaffNric"></span></td>
+                    <td><span data-bind="text: StaffContactNumber"></span></td>
+
+
+                    <td><a href="#" data-bind="click:$parent.getStaffDetails" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#StaffModal">Staff Details</a></td>
+                    
+
+                </tr>
+            </tbody>
+        </table>
+        
+        <button type="button" class="btn btn-success btn" data-toggle="modal" data-target="#addStaff">Add Staff</button>
+        <br />
+    </div>
+    <br />
+    <br />
+</div>
+<br />
+
+<div style="margin-right:100px;">  
+    <br /> <h4>Overview of Staff performance</h4>
+<span class="table-responsive">@Html.ActionLink("Housekeeping report", "Duty", "Staffkeeping", new { area = "" }, null)</span>
+</div>
+
+
+
+
+
+<div class="modal fade" id="StaffModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Staff Details</h4>
+            </div>
+
+            <div class="">
+                <div class="" id="myModal" data-bind="if: details()">
+                    <form class="form-horizontal">
+                        <table class="table">
+                            <tr>
+                                <td>Staff ID: <input type="text" textarea rows="1" cols="255" id="StaffId" class="form-control" readonly data-bind="value: details().StaffId"></td>
+                            </tr>
+                            <tr>
+                                <td>First Name: <input type="text"textarea rows="1" cols="255" id="StaffFirstName" class="form-control" data-bind="value: details().StaffFirstName"></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Last Name: <input type="text"textarea rows="1" cols="255" id="StaffLastName" class="form-control" data-bind="value: details().StaffLastName">
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    Staff Contact Number: <input type="number"textarea rows="1" cols="255" id="StaffEmail" class="form-control" data-bind="value: details().StaffContactNumber">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Staff Email: <input type="text"textarea rows="1" cols="255" id="StaffContactNumber" class="form-control" data-bind="value: details().StaffEmail">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Date of Birth: <input type="text"textarea rows="1" cols="255" id="StaffBirthDate" class="form-control" data-bind="value: details().StaffBirthDate">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Name of Bank Account: <input type="text"textarea rows="1" cols="255" id="BankName" class="form-control" data-bind="value: details().BankName">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Bank Account Number: <input type="number"textarea rows="1" cols="255" id="BankAccount" class="form-control" data-bind="value: details().BankAccount">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Duty Type: <input type="text"textarea rows="1"  cols="255" id="RoleAssigned" class="form-control" data-bind="value: details().DutyType">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Assigned Role: <input type="text" textarea rows="1" cols="255" id="RoleAssigned" class="form-control" data-bind="value: details().RoleAssigned">
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td colspan="2" align="center">
+                                    <a href="#" data-bind="click:saveStaff" class="btn btn-primary">Update Staff</a>
+                                </td>
+                            </tr>
+                            <tr><td colspan="2" align="center"><a href="#" data-bind="click:removeStaff" class="btn btn-primary btn">Delete Staff</a></td></tr>
+
+
+                        </table>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" id="addStaff">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <!-- Add New Staff -->
+            <div class="" id="addNewStaff">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h2 class="panel-title">Add New Staff</h2>
+                    </div>
+
+                    <div class="panel-body">
+                        <form class="form-horizontal" data-bind="submit: addStaff">
+                            <table class="table">
+                                <tr>
+                                    <td>Staff ID</td>
+                                    <td><input type="number"  required class="form-control" data-bind="value:newStaff.StaffId" /></td>
+                                </tr>
+                                <tr>
+                                    <td>Staff First Name</td>
+                                    <td><input type="text" required cols="255" class="form-control" data-bind="value:newStaff.StaffFirstName"></td>
+                                </tr>
+                                <tr>
+                                    <td>Staff Last Name</td>
+                                    <td><input type="text" required cols="255" class="form-control" data-bind="value:newStaff.StaffLastName"></td>
+                                </tr>
+                                <tr>
+                                    <td>Staff NRIC</td>
+                                    <td><input type="text" required cols="255" class="form-control" data-bind="value:newStaff.StaffNric"></td>
+                                </tr>
+                                
+                             
+                                <tr>
+                                    <td>Staff Email Address</td>
+                                    <td><input type="text" required cols="255" class="form-control" data-bind="value:newStaff.StaffEmail"></td>
+                                </tr>
+                                <tr>
+                                    <td>Contact Number</td>
+                                    <td><input type="number" required step="any" class="form-control" data-bind="value:newStaff.StaffContactNumber" /></td>
+                                </tr>
+                                <tr>
+                                    <td>Date of Birth</td>
+                                    <td><input type="text" required class="255" data-bind="value:newStaff.StaffBirthDate" /></td>
+                                </tr>
+                                <tr>
+                                    <td>Bank Account Name</td>
+                                    <td><input type="text" required cols="255" class="form-control" data-bind="value:newStaff.BankName"></td>
+                                </tr>
+                                <tr>
+                                    <td>Bank Account Number</td>
+                                    <td><input type="text" required cols="255" class="form-control" data-bind="value:newStaff.BankAccount"></td>
+                                </tr>
+                                <tr>
+                                    <td>Duty Type</td>
+                                    <td><input type="text" required cols="255" class="form-control" data-bind="value:newStaff.DutyType"></td>
+                                </tr>
+                                <tr>
+                                    <td>Assigned Roles</td>
+                                    <td><input type="text" required cols="255" class="form-control" data-bind="value:newStaff.RoleAssigned"></td>
+                                </tr>
+                                <tr>
+                                    <td align="center" colspan="2">
+                                        <button type="submit" class="btn btn-primary">Add Staff</button>
+                                    </td>
+                                </tr>
+                            </table>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--end of add Staff-->
+
+
+
+
+
